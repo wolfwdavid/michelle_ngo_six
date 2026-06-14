@@ -76,7 +76,9 @@ Plans:
   2. The Contact page shows all contact methods (email, phone, Vimeo, LinkedIn, IMDb).
   3. A Press page exists and renders.
   4. A reusable contact block renders consistently across footer / about / contact from a single source.
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 04-01-content-pages-PLAN.md — Port verbatim bio (/about + ContactBlock CTA), /contact splash (ContactBlock), and /press (port _pressCredits.ts + page); prune /about, /press, /contact from PENDING_ROUTES (keep /pbs-american-portrait/); strict-green prerender (PG-01, PG-02, PG-03, PG-04)
 
 ### Phase 5: Design Polish
 **Goal**: The site looks and feels cinematic and is responsive and accessible across the board — the visual finish that makes the experience film-forward without hurting performance.
@@ -99,5 +101,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Foundation & Deploy | 0/4 | Not started | - |
 | 2. Homepage Rails | 0/TBD | Not started | - |
 | 3. Browse & Watch | 0/3 | Not started | - |
-| 4. Content Pages | 0/TBD | Not started | - |
+| 4. Content Pages | 0/1 | Not started | - |
 | 5. Design Polish | 0/TBD | Not started | - |
