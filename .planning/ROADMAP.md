@@ -63,7 +63,7 @@ Plans:
   4. The watch page shows a "related work" rail, and video iframes lazy-load (only the hero poster is eager) so LCP is protected.
 **Plans**: 3 plans
 Plans:
-- [ ] 03-01-watch-player-PLAN.md — Replace the /watch/[id] stub with the full click-to-load player (poster→iframe by source), title/category/uploader/description metadata, and a same-category "Related work" rail (WCH-01, WCH-02, WCH-03, WCH-04)
+- [x] 03-01-watch-player-PLAN.md — Replace the /watch/[id] stub with the full click-to-load player (poster→iframe by source), title/category/uploader/description metadata, and a same-category "Related work" rail (WCH-01, WCH-02, WCH-03, WCH-04)
 - [ ] 03-02-work-index-PLAN.md — Port/adapt a dual-mode FilterPillBar (All + 8 categories) + the prerendered /work index: responsive VideoCard grid with client-side filtering; prune /work from PENDING_ROUTES (BRW-01, BRW-03)
 - [ ] 03-03-work-category-PLAN.md — /work/[category] route: entries() prerendering all 8 category slugs + load() (404 on unknown), title/count + FilterPillBar (link mode) + grid; prune the /work/ prefix from PENDING_ROUTES (BRW-02)
 

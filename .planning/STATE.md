@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-04-PLAN.md
-last_updated: "2026-06-14T20:17:40.824Z"
+stopped_at: Completed 03-01-watch-player-PLAN.md
+last_updated: "2026-06-14T20:40:03.555Z"
 progress:
   total_phases: 5
   completed_phases: 2
-  total_plans: 8
-  completed_plans: 8
+  total_plans: 11
+  completed_plans: 9
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** A visitor lands on the homepage and can immediately watch Michelle's work — browsing films/videos by category in an engaging, cinematic, scroll-and-play interface.
-**Current focus:** Phase 02 — homepage-rails
+**Current focus:** Phase 03 — browse-watch
 
 ## Current Position
 
-Phase: 3
-Plan: Not started
+Phase: 03 (browse-watch) — EXECUTING
+Plan: 2 of 3
 
 ## Performance Metrics
 
@@ -54,6 +54,7 @@ Plan: Not started
 | Phase 02 P02 | 8m | 2 tasks | 1 files |
 | Phase 02 P03 | 5 | 2 tasks | 2 files |
 | Phase 02 P04 | 4 | 3 tasks | 4 files |
+| Phase 03 P01 | 4min | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -77,6 +78,8 @@ Recent decisions affecting current work:
 - [Phase 02]: Hero crossfade gated by rune-bound class:motion-ok (not Tailwind motion-safe:), preserving the single-source motion rune
 - [Phase 02]: HOME-04 stub = real /watch/[id] route with entries() prerendering all 56 ids (not a handleHttpError allow-list workaround); Phase 3 replaces only +page.svelte
 - [Phase 02]: Homepage wraps content in a <div> (not a nested <main>) since the layout already provides <main id=main>; single sr-only h1 (hero/rail titles are h2)
+- [Phase 03]: Watch embed is click-to-load: poster + play overlay first, iframe mounts on click so no third-party iframe ships in prerendered HTML
+- [Phase 03]: Related rail built inline (not via CategoryRail) so the current video id is excluded; topped up from other categories when sparse
 
 ### Pending Todos
 
@@ -92,6 +95,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-14T20:08:11.876Z
-Stopped at: Completed 02-04-PLAN.md
+Last session: 2026-06-14T20:39:48.319Z
+Stopped at: Completed 03-01-watch-player-PLAN.md
 Resume file: None

@@ -30,10 +30,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Watch
 
-- [ ] **WCH-01**: Each video has a watch page (`/watch/[id]`) with an embedded Vimeo/YouTube player
-- [ ] **WCH-02**: Watch page shows title, category, and description/metadata
-- [ ] **WCH-03**: Watch page shows a "related work" rail
-- [ ] **WCH-04**: Video iframes lazy-load (only the hero poster is eager) to protect LCP
+- [x] **WCH-01**: Each video has a watch page (`/watch/[id]`) with an embedded Vimeo/YouTube player
+- [x] **WCH-02**: Watch page shows title, category, and description/metadata
+- [x] **WCH-03**: Watch page shows a "related work" rail
+- [x] **WCH-04**: Video iframes lazy-load (only the hero poster is eager) to protect LCP
 
 ### Pages
 
@@ -100,10 +100,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BRW-01 | Phase 3 | Pending |
 | BRW-02 | Phase 3 | Pending |
 | BRW-03 | Phase 3 | Pending |
-| WCH-01 | Phase 3 | Pending |
-| WCH-02 | Phase 3 | Pending |
-| WCH-03 | Phase 3 | Pending |
-| WCH-04 | Phase 3 | Pending |
+| WCH-01 | Phase 3 | Complete |
+| WCH-02 | Phase 3 | Complete |
+| WCH-03 | Phase 3 | Complete |
+| WCH-04 | Phase 3 | Complete |
 | PG-01 | Phase 4 | Pending |
 | PG-02 | Phase 4 | Pending |
 | PG-03 | Phase 4 | Pending |
