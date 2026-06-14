@@ -83,7 +83,7 @@
   --ring-focus-inner: oklch(0.16 0 0); /* inner dark, matches neutral-950 */
   --ring-focus-offset: 2px;
 
-  /* Neutrals ramp (Claude's-Discretion — sensible dark-mode OKLCH) */
+  /* Neutrals ramp — sensible dark-mode OKLCH */
   --color-neutral-50: oklch(0.98 0 0);
   --color-neutral-100: oklch(0.94 0 0);
   --color-neutral-300: oklch(0.82 0 0);
