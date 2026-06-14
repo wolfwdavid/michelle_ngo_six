@@ -110,6 +110,38 @@
   --ease-cinematic: cubic-bezier(0.4, 0, 0.2, 1);
   --content-max: 1440px;
   --page-gutter: 16px;
+
+  /* Typographic ramp + section rhythm + scrim tokens — one shared system so
+   * chrome and every page surface speak the same display scale. The heading
+   * ramp collapses earlier drift to four display sizes; the section tokens
+   * give editorial sections a single vertical rhythm; the scrim tokens are the
+   * one source of truth for poster overlays (consumed by the contact/press
+   * surfaces and the hero/card scrims). */
+
+  /* Heading ramp — four display sizes. */
+  --text-hero: clamp(28px, 5vw, 48px); /* hero + press/contact wordmark */
+  --text-h1: clamp(26px, 3.5vw, 36px); /* watch title, page H2 headers */
+  --text-h2: 20px;                     /* rail labels, related, section heads */
+  --text-meta: 14px;                   /* counts, meta, eyebrows */
+
+  /* Section vertical rhythm — one scale for editorial sections. */
+  --section-y: clamp(3rem, 6vw, 6rem);
+  --section-y-sm: clamp(2rem, 4vw, 3rem);
+
+  /* Wordmark identity + body leading. */
+  --tracking-wordmark: 0.18em;
+  --leading-body: 1.5;
+
+  /* Vertical scrim idiom — single source for poster overlays. */
+  --scrim-vertical: linear-gradient(
+    180deg,
+    oklch(0.16 0 0 / 0.6) 0%,
+    transparent 28%,
+    transparent 64%,
+    oklch(0.16 0 0 / 0.78) 100%
+  );
+  --scrim-strong: oklch(0.16 0 0 / 0.78);
+  --text-shadow-cinema: 0 1px 12px oklch(0.16 0 0 / 0.8);
 }
 
 /* UI-SPEC § Layout: gutter widens to 24px at the sm breakpoint (≥640px). */
