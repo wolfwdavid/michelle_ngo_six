@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-03-work-category-PLAN.md
-last_updated: "2026-06-14T21:00:16.365Z"
+stopped_at: Completed 04-01-content-pages-PLAN.md
+last_updated: "2026-06-14T22:22:47.279Z"
 progress:
   total_phases: 5
-  completed_phases: 3
-  total_plans: 11
-  completed_plans: 11
+  completed_phases: 4
+  total_plans: 12
+  completed_plans: 12
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** A visitor lands on the homepage and can immediately watch Michelle's work — browsing films/videos by category in an engaging, cinematic, scroll-and-play interface.
-**Current focus:** Phase 03 — browse-watch
+**Current focus:** Phase 04 — content-pages
 
 ## Current Position
 
-Phase: 4
-Plan: Not started
+Phase: 04 (content-pages) — EXECUTING
+Plan: 1 of 1
 
 ## Performance Metrics
 
@@ -57,6 +57,7 @@ Plan: Not started
 | Phase 03 P01 | 4min | 2 tasks | 1 files |
 | Phase 03 P02 | 5min | 2 tasks | 4 files |
 | Phase 03 P03 | 8min | 2 tasks | 3 files |
+| Phase 04 P01 | 5min | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -85,6 +86,8 @@ Recent decisions affecting current work:
 - [Phase 03]: FilterPillBar is dual-mode: onselect prop present -> filter buttons (/work), absent -> links (/work/[category]); active state from an 'active' prop, not page.url
 - [Phase 03]: the /work index is a single prerendered page with client-side $state/$derived filtering, not per-category prerendered pages
 - [Phase 03]: /work/[category] prerenders 8 pages via entries() over CATEGORIES; FilterPillBar reused in link mode (active=current slug); /work/ prefix fully removed from PENDING_ROUTES so all work routes are strictly crawled
+- [Phase 04]: Omitted /about Person JSON-LD to keep contact URLs single-sourced in ContactBlock (PG-04)
+- [Phase 04]: Adapted /about to editorial section (no HeroAmbient in _six)
 
 ### Pending Todos
 
@@ -100,6 +103,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-14T20:54:32.117Z
-Stopped at: Completed 03-03-work-category-PLAN.md
+Last session: 2026-06-14T22:09:56.116Z
+Stopped at: Completed 04-01-content-pages-PLAN.md
 Resume file: None

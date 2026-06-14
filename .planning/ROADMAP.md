@@ -78,7 +78,7 @@ Plans:
   4. A reusable contact block renders consistently across footer / about / contact from a single source.
 **Plans**: 1 plan
 Plans:
-- [ ] 04-01-content-pages-PLAN.md — Port verbatim bio (/about + ContactBlock CTA), /contact splash (ContactBlock), and /press (port _pressCredits.ts + page); prune /about, /press, /contact from PENDING_ROUTES (keep /pbs-american-portrait/); strict-green prerender (PG-01, PG-02, PG-03, PG-04)
+- [x] 04-01-content-pages-PLAN.md — Port verbatim bio (/about + ContactBlock CTA), /contact splash (ContactBlock), and /press (port _pressCredits.ts + page); prune /about, /press, /contact from PENDING_ROUTES (keep /pbs-american-portrait/); strict-green prerender (PG-01, PG-02, PG-03, PG-04)
 
 ### Phase 5: Design Polish
 **Goal**: The site looks and feels cinematic and is responsive and accessible across the board — the visual finish that makes the experience film-forward without hurting performance.

@@ -37,10 +37,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Pages
 
-- [ ] **PG-01**: About page displays Michelle's approved bio
-- [ ] **PG-02**: Contact page shows all contact methods (email, phone, Vimeo, LinkedIn, IMDb)
-- [ ] **PG-03**: Press page
-- [ ] **PG-04**: Reusable contact block used across footer / about / contact (single source of truth)
+- [x] **PG-01**: About page displays Michelle's approved bio
+- [x] **PG-02**: Contact page shows all contact methods (email, phone, Vimeo, LinkedIn, IMDb)
+- [x] **PG-03**: Press page
+- [x] **PG-04**: Reusable contact block used across footer / about / contact (single source of truth)
 
 ### Design & Accessibility
 
@@ -104,10 +104,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | WCH-02 | Phase 3 | Complete |
 | WCH-03 | Phase 3 | Complete |
 | WCH-04 | Phase 3 | Complete |
-| PG-01 | Phase 4 | Pending |
-| PG-02 | Phase 4 | Pending |
-| PG-03 | Phase 4 | Pending |
-| PG-04 | Phase 4 | Pending |
+| PG-01 | Phase 4 | Complete |
+| PG-02 | Phase 4 | Complete |
+| PG-03 | Phase 4 | Complete |
+| PG-04 | Phase 4 | Complete |
 | DSN-01 | Phase 5 | Pending |
 | DSN-02 | Phase 5 | Pending |
 | DSN-03 | Phase 5 | Pending |
