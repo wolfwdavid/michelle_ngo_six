@@ -84,13 +84,40 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (populated by roadmapper) | | |
+| FND-01 | Phase 1 | Pending |
+| FND-02 | Phase 1 | Pending |
+| FND-03 | Phase 1 | Pending |
+| FND-04 | Phase 1 | Pending |
+| DEP-01 | Phase 1 | Pending |
+| DEP-02 | Phase 1 | Pending |
+| DEP-03 | Phase 1 | Pending |
+| DEP-04 | Phase 1 | Pending |
+| HOME-01 | Phase 2 | Pending |
+| HOME-02 | Phase 2 | Pending |
+| HOME-03 | Phase 2 | Pending |
+| HOME-04 | Phase 2 | Pending |
+| HOME-05 | Phase 2 | Pending |
+| BRW-01 | Phase 3 | Pending |
+| BRW-02 | Phase 3 | Pending |
+| BRW-03 | Phase 3 | Pending |
+| WCH-01 | Phase 3 | Pending |
+| WCH-02 | Phase 3 | Pending |
+| WCH-03 | Phase 3 | Pending |
+| WCH-04 | Phase 3 | Pending |
+| PG-01 | Phase 4 | Pending |
+| PG-02 | Phase 4 | Pending |
+| PG-03 | Phase 4 | Pending |
+| PG-04 | Phase 4 | Pending |
+| DSN-01 | Phase 5 | Pending |
+| DSN-02 | Phase 5 | Pending |
+| DSN-03 | Phase 5 | Pending |
+| DSN-04 | Phase 5 | Pending |
 
 **Coverage:**
 - v1 requirements: 25 total
-- Mapped to phases: (pending roadmap)
-- Unmapped: (pending roadmap)
+- Mapped to phases: 25 (100%)
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-06-14*
-*Last updated: 2026-06-14 after initial definition*
+*Last updated: 2026-06-14 after roadmap creation*
