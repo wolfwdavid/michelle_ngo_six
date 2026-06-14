@@ -12,7 +12,11 @@ A visitor lands on the homepage and can immediately *watch Michelle's work* — 
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ SvelteKit 5 + adapter-static foundation forked from `_three`, building clean — Phase 1
+- ✓ Tailwind v4 + OKLCH tokens + self-hosted fonts (Source Serif 4, Inter, JetBrains Mono) — Phase 1
+- ✓ Zod-validated `videos.json` data layer (56 videos, 8 categories) + state runes — Phase 1
+- ✓ App shell (root layout, TopNav, MobileMenu, Footer, ContactBlock) — Phase 1
+- ✓ Static prerender live on GitHub Pages at `/michelle_ngo_six` (sitemap, base-path assets) — Phase 1
 
 ### Active
 
@@ -92,4 +96,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-14 after initialization*
+*Last updated: 2026-06-14 after Phase 1 (Foundation & Deploy) — site live on GitHub Pages*
