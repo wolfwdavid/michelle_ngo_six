@@ -31,7 +31,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. `videos.json` (56 videos, 8 categories) plus `categories.ts`/`schema.ts` load and pass Zod validation.
 **Plans**: 4 plans
 Plans:
-- [ ] 01-01-scaffold-tooling-tokens-PLAN.md — Scaffold SvelteKit 5 + adapter-static (pnpm), Tailwind v4 + OKLCH tokens, fonts, static assets, green placeholder build (FND-01, FND-02, DEP-01)
+- [x] 01-01-scaffold-tooling-tokens-PLAN.md — Scaffold SvelteKit 5 + adapter-static (pnpm), Tailwind v4 + OKLCH tokens, fonts, static assets, green placeholder build (FND-01, FND-02, DEP-01)
 - [ ] 01-02-data-layer-PLAN.md — Port Zod-validated data layer (videos.json, schema, categories, loader, posters, hero), storage + state runes + categoryAccent, build-time validation plugin (FND-03)
 - [ ] 01-03-app-shell-PLAN.md — Port app shell: root layout, TopNav, MobileMenu, Footer, ContactBlock (FND-04)
 - [ ] 01-04-sitemap-and-deploy-PLAN.md — Phase-scoped sitemap.xml, minimal GitHub Pages deploy workflow with BASE_PATH, no-absolute-paths check, push + live verify (DEP-02, DEP-03, DEP-04)
