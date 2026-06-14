@@ -26,6 +26,13 @@ const config = {
       // them intact and scope-allow ONLY the known forward-phase 404s here.
       // Any UNEXPECTED 404 (typo, broken asset, etc.) still fails the build.
       //
+      // /watch/[id] is NOT pending — Plan 02-04 ships a real (Phase-2 stub)
+      // /watch/[id] route whose entries() prerenders all 56 ids, so every
+      // card/hero link resolves to a real page. Phase 3 swaps the stub
+      // +page.svelte for the full player (keeping the +page.ts entries()).
+      // It must therefore NEVER appear in PENDING_ROUTES — a /watch 404 here
+      // is a genuine bug (a link/id mismatch), not a forward-phase route.
+      //
       // NOTE: when building with BASE_PATH set (the GitHub Pages deploy uses
       // BASE_PATH=/michelle_ngo_six), the prerenderer reports paths PREFIXED
       // with the base (e.g. /michelle_ngo_six/work). Strip that prefix before
