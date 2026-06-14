@@ -19,14 +19,15 @@ const config = {
     },
     prerender: {
       // The app-shell chrome (TopNav/MobileMenu/Footer) links to routes that
-      // do not exist yet this phase (/work/[category], /about, /press,
-      // /contact, /pbs-american-portrait/). The prerender crawler follows
-      // those <a href>s from the prerendered homepage and would 404 the build.
-      // The bare /work index is now a real, prerendered route (it is crawled
-      // and built), so it is NOT in the allow-list; only the /work/[category]
-      // filter routes remain pending until they ship.
-      // These hrefs are correct for when Phases 2-4 ship the routes, so we keep
-      // them intact and scope-allow ONLY the known forward-phase 404s here.
+      // do not exist yet this phase (/about, /press, /contact,
+      // /pbs-american-portrait/). The prerender crawler follows those <a href>s
+      // from the prerendered homepage and would 404 the build.
+      // Both /work and /work/[category] are now real, prerendered routes (the
+      // index is crawled and the 8 category pages prerender via entries()), so
+      // NO /work* path remains in the allow-list — any /work 404 is a genuine
+      // build failure.
+      // These hrefs are correct for when Phases 4 ships the remaining routes, so
+      // we keep them intact and scope-allow ONLY the known forward-phase 404s.
       // Any UNEXPECTED 404 (typo, broken asset, etc.) still fails the build.
       //
       // /watch/[id] is NOT pending — Plan 02-04 ships a real (Phase-2 stub)
@@ -53,14 +54,11 @@ const config = {
             ? path.slice(BASE_PATH.length) || '/'
             : path;
         const normalized = debased.replace(/\/$/, '') || '/';
-        const isPendingWorkCategory = normalized.startsWith('/work/');
         if (
           status === 404 &&
-          (PENDING_ROUTES.has(debased) ||
-            PENDING_ROUTES.has(normalized) ||
-            isPendingWorkCategory)
+          (PENDING_ROUTES.has(debased) || PENDING_ROUTES.has(normalized))
         ) {
-          // Forward-phase route — expected to 404 until Phases 2-4 build it.
+          // Forward-phase route — expected to 404 until Phase 4 builds it.
           return;
         }
         throw new Error(message);
