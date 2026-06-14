@@ -16,11 +16,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Homepage
 
-- [ ] **HOME-01**: Visitor sees a cinematic featured hero (producer reel, Vimeo `264677021`) at the top of the homepage
+- [x] **HOME-01**: Visitor sees a cinematic featured hero (producer reel, Vimeo `264677021`) at the top of the homepage
 - [x] **HOME-02**: Homepage displays one horizontal, scrollable rail per category, each labeled with its category name
 - [x] **HOME-03**: Each rail renders video cards (poster, title) and is navigable by mouse, touch, and keyboard
 - [ ] **HOME-04**: Activating a video card navigates to that video's watch page
-- [ ] **HOME-05**: Hero and rails honor `prefers-reduced-motion` (no autoplay/auto-advance when reduced)
+- [x] **HOME-05**: Hero and rails honor `prefers-reduced-motion` (no autoplay/auto-advance when reduced)
 
 ### Browse
 
@@ -92,11 +92,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DEP-02 | Phase 1 | Complete |
 | DEP-03 | Phase 1 | Complete |
 | DEP-04 | Phase 1 | Complete |
-| HOME-01 | Phase 2 | Pending |
+| HOME-01 | Phase 2 | Complete |
 | HOME-02 | Phase 2 | Complete |
 | HOME-03 | Phase 2 | Complete |
 | HOME-04 | Phase 2 | Pending |
-| HOME-05 | Phase 2 | Pending |
+| HOME-05 | Phase 2 | Complete |
 | BRW-01 | Phase 3 | Pending |
 | BRW-02 | Phase 3 | Pending |
 | BRW-03 | Phase 3 | Pending |

@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-02-PLAN.md
-last_updated: "2026-06-14T19:55:40.367Z"
+stopped_at: Completed 02-03-PLAN.md
+last_updated: "2026-06-14T19:57:30.572Z"
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 8
-  completed_plans: 6
+  completed_plans: 7
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-06-14)
 ## Current Position
 
 Phase: 02 (homepage-rails) — EXECUTING
-Plan: 2 of 4
+Plan: 3 of 4
 
 ## Performance Metrics
 
@@ -52,6 +52,7 @@ Plan: 2 of 4
 | Phase 01-foundation-deploy P04 | 9 | 2 tasks | 3 files |
 | Phase 02 P01 | 5min | 2 tasks | 2 files |
 | Phase 02 P02 | 8m | 2 tasks | 1 files |
+| Phase 02 P03 | 5 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -72,6 +73,7 @@ Recent decisions affecting current work:
 - [Phase 01-foundation-deploy]: Sitemap is phase-scoped (homepage only, production canonical host); minimal Pages workflow forked from _four with dynamic BASE_PATH=/${{ github.event.repository.name }}.
 - [Phase 01-foundation-deploy]: Made prerender handleHttpError allow-list base-aware (strip BASE_PATH prefix before matching) so the base-path CI/Pages build does not 404 on forward-phase nav routes.
 - [Phase 02]: VideoCard reduced-motion gated via rune-bound motion-ok class (not motion-safe:); tilt clamped to ±6deg
+- [Phase 02]: Hero crossfade gated by rune-bound class:motion-ok (not Tailwind motion-safe:), preserving the single-source motion rune
 
 ### Pending Todos
 
@@ -87,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-14T19:55:40.360Z
-Stopped at: Completed 02-02-PLAN.md
+Last session: 2026-06-14T19:57:18.298Z
+Stopped at: Completed 02-03-PLAN.md
 Resume file: None
