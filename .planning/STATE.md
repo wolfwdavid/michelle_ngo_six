@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-03-app-shell-PLAN.md
-last_updated: "2026-06-14T18:04:58.752Z"
+stopped_at: Local tasks of 01-04-sitemap-and-deploy done (sitemap + workflow committed); push + Pages-enable + live human-verify delegated to orchestrator
+last_updated: "2026-06-14T18:12:59.221Z"
 progress:
   total_phases: 5
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 4
-  completed_plans: 3
+  completed_plans: 4
 ---
 
 # Project State
@@ -49,6 +49,7 @@ Plan: 4 of 4
 | Phase 01-foundation-deploy P01 | 43 | 3 tasks | 24 files |
 | Phase 01 P02 | 18 | 3 tasks | 71 files |
 | Phase 01 P03 | 6 | 3 tasks | 6 files |
+| Phase 01-foundation-deploy P04 | 9 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,8 @@ Recent decisions affecting current work:
 - [Phase 01]: Removed the 01-01 temporary handleHttpError poster-preload allowance; strict prerender restored now that static/posters/ ships vimeo-264677021.jpg.
 - [Phase 01]: App shell: kept nav hrefs intact and scope-allowed forward-phase route 404s via prerender handleHttpError, instead of rewriting hrefs to base — keeps navigation IA correct and build green.
 - [Phase 01]: Scrubbed forward-phase component name (ReelStage) from ported chrome comments to satisfy the no-Phase-2-reference gate; behavior byte-identical to _three.
+- [Phase 01-foundation-deploy]: Sitemap is phase-scoped (homepage only, production canonical host); minimal Pages workflow forked from _four with dynamic BASE_PATH=/${{ github.event.repository.name }}.
+- [Phase 01-foundation-deploy]: Made prerender handleHttpError allow-list base-aware (strip BASE_PATH prefix before matching) so the base-path CI/Pages build does not 404 on forward-phase nav routes.
 
 ### Pending Todos
 
@@ -81,6 +84,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-14T18:04:45.177Z
-Stopped at: Completed 01-03-app-shell-PLAN.md
+Last session: 2026-06-14T18:12:59.218Z
+Stopped at: Local tasks of 01-04-sitemap-and-deploy done (sitemap + workflow committed); push + Pages-enable + live human-verify delegated to orchestrator
 Resume file: None
