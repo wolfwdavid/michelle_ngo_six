@@ -7,7 +7,6 @@ depends_on: []
 files_modified:
   - src/app.css
   - src/lib/components/VideoCard.svelte
-  - src/lib/components/VideoCard.svelte.test.ts
 autonomous: true
 requirements: [HOME-03]
 must_haves:
@@ -43,8 +42,10 @@ must_haves:
 <objective>
 Build the foundational motion tokens and the cinematic VideoCard component that every rail (Plan 02) renders. The card is a real link to /watch/{id} with a CSS-only cursor-tilt, accent ring, lift shadow, and title fade-up — all gated on the single `motion.prefersReducedMotion` rune.
 
-Purpose: VideoCard is the leaf primitive of the homepage. Building it first (with its own behavior test) lets the rail and homepage-assembly plans consume a finished, tested contract instead of exploring.
-Output: `src/app.css` motion tokens + reduced-motion backstop; `src/lib/components/VideoCard.svelte`; `VideoCard.svelte.test.ts`.
+Purpose: VideoCard is the leaf primitive of the homepage. Building it first lets the rail and homepage-assembly plans consume a finished contract instead of exploring.
+Output: `src/app.css` motion tokens + reduced-motion backstop; `src/lib/components/VideoCard.svelte`.
+
+NOTE — verification model for THIS repo: there is NO test runner (this project intentionally stripped _three's vitest/CI harness — see 02-CONTEXT). Verification is done with the scripts that actually exist here: `pnpm check` (svelte-check) and `pnpm build`, plus grep assertions over the SOURCE files for the exact UI-SPEC strings. Do NOT add vitest, a `test` script, or a vite test block. Do NOT create `*.test.ts` files.
 </objective>
 
 <execution_context>
@@ -85,8 +86,6 @@ export function categoryAccentRing(category: Category): string; // "ring-cat-pbs
 From src/lib/state/motion.svelte.ts (SINGLE SOURCE OF TRUTH for motion):
 ```typescript
 export const motion: { readonly prefersReducedMotion: boolean };
-export function __setPrefersReducedMotionForTests(v: boolean): void; // test-only
-export function __resetMotionStateForTests(): void;                  // test-only
 ```
 
 From $app/paths: `import { base } from '$app/paths';` — every href is `` `${base}/watch/${id}` ``.
@@ -95,6 +94,7 @@ From $app/paths: `import { base } from '$app/paths';` — every href is `` `${ba
 <reference>
 <!-- Adapt these _three components for poster + card markup. NOTE: _three has NO VideoCard.svelte; -->
 <!-- the closest card mechanics are the rail card markup inside ContinueReelRail.svelte and PosterImage.svelte. -->
+<!-- IGNORE the *.test.ts files in _three — this repo has no test runner. -->
 @../michelle_ngo_three/src/lib/components/ContinueReelRail.svelte
 @../michelle_ngo_three/src/lib/components/PosterImage.svelte
 </reference>
@@ -134,29 +134,20 @@ From $app/paths: `import { base } from '$app/paths';` — every href is `` `${ba
     - The existing `:focus-visible` rule is unchanged: `grep -F "outline: 2px solid var(--ring-focus)" src/app.css` still returns a match.
   </acceptance_criteria>
   <verify>
-    <automated>cd "C:/Users/Mkaru/Documents/Hello_World/hugginface_profile/Websites/michelle_ngo_websites/michelle_ngo_six" && grep -F "--ease-cinematic" src/app.css && grep -F "transition-duration: 0.001ms" src/app.css</automated>
+    <automated>cd "C:/Users/Mkaru/Documents/Hello_World/hugginface_profile/Websites/michelle_ngo_websites/michelle_ngo_six" && grep -F "--ease-cinematic" src/app.css && grep -F "transition-duration: 0.001ms" src/app.css && pnpm build</automated>
   </verify>
-  <done>app.css contains --ease-cinematic, --content-max, --page-gutter (with 640px override), and the global reduced-motion backstop; the existing :focus-visible rule is intact.</done>
+  <done>app.css contains --ease-cinematic, --content-max, --page-gutter (with 640px override), and the global reduced-motion backstop; the existing :focus-visible rule is intact; pnpm build is green.</done>
 </task>
 
-<task type="auto" tdd="true">
-  <name>Task 2: Build VideoCard.svelte with cursor-tilt + reduced-motion branch (+ behavior test)</name>
+<task type="auto" tdd="false">
+  <name>Task 2: Build VideoCard.svelte with cursor-tilt + reduced-motion branch</name>
   <read_first>
     - ../michelle_ngo_three/src/lib/components/ContinueReelRail.svelte (card anchor markup: aspect-video poster <a>, line-clamp title, base-prefixed /watch/{id} href)
     - ../michelle_ngo_three/src/lib/components/PosterImage.svelte (poster <img> attrs: object-cover, decoding="async", aspect-ratio container)
     - src/lib/components/categoryAccent.ts (categoryAccent / categoryAccentRing literal-map contract — DO NOT build dynamic class strings; Tailwind scanner only sees literals)
-    - src/lib/state/motion.svelte.ts (the rune + test hooks __setPrefersReducedMotionForTests / __resetMotionStateForTests)
+    - src/lib/state/motion.svelte.ts (the single-source motion rune — read motion.prefersReducedMotion ONLY; never matchMedia)
     - .planning/phases/02-homepage-rails/02-UI-SPEC.md § VideoCard Spec (lines ~190-225) — EXACT hover/focus/reduced-motion values
-    - ../michelle_ngo_three/src/lib/components/ContinueReelRail.svelte.test.ts (vitest-browser-svelte render pattern to mirror in the new test)
   </read_first>
-  <behavior>
-    - Renders an `<a href>` whose href ends with `/watch/{video.id}` and has `aria-label="Watch {title}"`.
-    - Renders a poster `<img>` with `alt={video.title}`, `loading="lazy"` (default), `decoding="async"`, inside an `aspect-[16/9]` `rounded-xl` container.
-    - When `video.duration_seconds` is present, renders an `m:ss` mono duration badge; when absent, renders no badge.
-    - With `__setPrefersReducedMotionForTests(true)`: the card's inline `transform` stays `none` / no `--tilt-*` is applied on pointermove (tilt handler early-returns).
-    - With reduced-motion false: a simulated pointermove sets `--tilt-x` / `--tilt-y` within +/-6deg.
-    - The card applies `categoryAccentRing(video.category)` on hover/focus.
-  </behavior>
   <action>
     Create `src/lib/components/VideoCard.svelte`. Props: `{ video: Video; eager?: boolean }` ($props). Implement per the UI-SPEC § VideoCard Spec EXACT values:
 
@@ -175,42 +166,44 @@ From $app/paths: `import { base } from '$app/paths';` — every href is `` `${ba
       - `:where(.video-card:hover, .video-card:focus-visible)` (full motion): `transform: perspective(800px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) scale(1.03);` lift shadow `0 12px 28px -8px oklch(0.16 0 0 / 0.7), 0 2px 6px oklch(0.16 0 0 / 0.5);` poster `filter: brightness(1.06);` title color neutral-300 -> neutral-50 + translateY(4px->0) over 180ms.
       - Transition: `transform 180ms var(--ease-cinematic), box-shadow 180ms, filter 180ms;` (tilt itself follows cursor with no transition).
     - Accent ring: apply `categoryAccentRing(video.category)` (literal class from the map) on hover/focus-visible together with `ring-2 ring-offset-2 ring-offset-neutral-950`. Bind the ring class onto the root conditionally on a `$state` `active` flag toggled by pointerenter/leave/focus/blur, OR via Tailwind `hover:`/`focus-visible:` variants combined with the mapped `ring-cat-*/40` literal — pick whichever keeps the class literal so Tailwind generates it.
-    - Reduced-motion branch (UI-SPEC): when `motion.prefersReducedMotion` is true, NO tilt/scale — only `filter: brightness(1.08)` + the accent ring (2px) + lift shadow, plus instant title color change. Achieve this by guarding the tilt JS (already) AND scoping the transform rule under `:where(...)` only when not reduced — simplest: keep `transform` reading the tilt vars which stay `0deg` under reduced motion, and drop the `scale(1.03)` when reduced by binding a class `motion-ok` derived from `!motion.prefersReducedMotion`. Document the chosen mechanism in a code comment.
+    - Reduced-motion branch (UI-SPEC): when `motion.prefersReducedMotion` is true, NO tilt/scale — only `filter: brightness(1.08)` + the accent ring (2px) + lift shadow, plus instant title color change. REQUIRED MECHANISM (single approach — do NOT use Tailwind `motion-safe:` variants, which read the media query directly and bypass the locked single-source `motion` rune): bind a `class:motion-ok={!motion.prefersReducedMotion}` onto the root, and scope the `scale(1.03)` transform rule under `.video-card.motion-ok:hover, .video-card.motion-ok:focus-visible`. The tilt vars stay `0deg` under reduced motion (JS already early-returns), and without the `motion-ok` class the scale rule never applies — so reduced motion yields only brighten + ring + shadow. Document this mechanism in a code comment.
     - Do NOT call `matchMedia` anywhere. Do NOT override `:focus-visible`. No `<canvas>` / WebGL.
-
-    Also create `src/lib/components/VideoCard.svelte.test.ts` mirroring the ContinueReelRail test harness (vitest-browser-svelte). Cover the behaviors above; use `__setPrefersReducedMotionForTests` + `__resetMotionStateForTests` (afterEach) to assert the reduced-motion branch leaves transform `none` / no tilt vars set.
   </action>
   <acceptance_criteria>
-    - `grep -F 'aria-label={`Watch ${video.title}`}' src/lib/components/VideoCard.svelte` OR `grep -F "Watch " src/lib/components/VideoCard.svelte` returns a match, and `grep -F "watch/" src/lib/components/VideoCard.svelte` returns a match (link to /watch/{id}).
+    - `grep -F "Watch " src/lib/components/VideoCard.svelte` returns a match AND `grep -F "watch/" src/lib/components/VideoCard.svelte` returns a match (link to /watch/{id}).
     - `grep -F "aspect-[16/9]" src/lib/components/VideoCard.svelte` and `grep -F "rounded-xl" src/lib/components/VideoCard.svelte` both match.
     - `grep -F "scale(1.03)" src/lib/components/VideoCard.svelte` matches.
     - `grep -F "categoryAccentRing(" src/lib/components/VideoCard.svelte` matches.
     - `grep -F "motion.prefersReducedMotion" src/lib/components/VideoCard.svelte` matches AND `grep -c "matchMedia" src/lib/components/VideoCard.svelte` returns 0.
+    - `grep -F "motion-ok" src/lib/components/VideoCard.svelte` matches (the reduced-motion gating class — NOT `motion-safe:`).
+    - `grep -c "motion-safe:" src/lib/components/VideoCard.svelte` returns 0 (must use the rune-bound class, not the Tailwind media-query variant).
     - `grep -F "--tilt-x" src/lib/components/VideoCard.svelte` and `grep -F "--tilt-y" src/lib/components/VideoCard.svelte` both match; `grep -F "6deg" src/lib/components/VideoCard.svelte` matches (clamp).
     - `grep -F "var(--ease-cinematic)" src/lib/components/VideoCard.svelte` matches.
     - `grep -c "canvas" src/lib/components/VideoCard.svelte` returns 0.
-    - `pnpm test -- src/lib/components/VideoCard.svelte.test.ts` passes (reduced-motion branch test asserts no tilt).
+    - `pnpm check` reports no errors for VideoCard.svelte AND `pnpm build` exits 0.
   </acceptance_criteria>
   <verify>
-    <automated>cd "C:/Users/Mkaru/Documents/Hello_World/hugginface_profile/Websites/michelle_ngo_websites/michelle_ngo_six" && pnpm test -- src/lib/components/VideoCard.svelte.test.ts</automated>
+    <automated>cd "C:/Users/Mkaru/Documents/Hello_World/hugginface_profile/Websites/michelle_ngo_websites/michelle_ngo_six" && grep -F "scale(1.03)" src/lib/components/VideoCard.svelte && grep -F "motion-ok" src/lib/components/VideoCard.svelte && grep -F "categoryAccentRing(" src/lib/components/VideoCard.svelte && [ "$(grep -c 'matchMedia' src/lib/components/VideoCard.svelte)" = "0" ] && [ "$(grep -c 'motion-safe:' src/lib/components/VideoCard.svelte)" = "0" ] && pnpm check && pnpm build</automated>
   </verify>
-  <done>VideoCard renders poster+title+optional badge as an <a> to /watch/{id}; full-motion hover tilts (clamped ±6deg)/scales/lifts/rings/fades; reduced-motion branch (driven solely by the motion rune) drops tilt+scale; behavior test green.</done>
+  <done>VideoCard renders poster+title+optional badge as an <a> to /watch/{id}; full-motion hover tilts (clamped ±6deg)/scales/lifts/rings/fades; reduced-motion branch (driven solely by the motion rune via the motion-ok class) drops tilt+scale; pnpm check + pnpm build green.</done>
 </task>
 
 </tasks>
 
 <verification>
-- `pnpm test -- src/lib/components/VideoCard.svelte.test.ts` passes.
-- VideoCard reads motion exclusively from `motion.prefersReducedMotion` (no `matchMedia`).
+- `pnpm check` reports no errors and `pnpm build` exits 0.
+- VideoCard reads motion exclusively from `motion.prefersReducedMotion` (no `matchMedia`, no `motion-safe:` variant) — the reduced-motion branch is gated by the `motion-ok` class bound to `!motion.prefersReducedMotion`.
 - No raw hex / `rgb(` colors and no `<canvas>`/WebGL introduced.
 - app.css adds the three tokens + reduced-motion backstop without touching the focus-visible rule.
 </verification>
 
 <success_criteria>
 - A different executor can render `<VideoCard {video} />` and get a cinematic, accessible, /watch-linked card with the exact UI-SPEC hover/reduced-motion behavior.
-- All Task acceptance_criteria grep/test checks pass.
+- All Task acceptance_criteria grep/check/build checks pass.
 </success_criteria>
 
 <output>
-After completion, create `.planning/phases/02-homepage-rails/02-01-SUMMARY.md` documenting: the exact tilt math used, the chosen reduced-motion mechanism, and the VideoCard prop contract (`{ video, eager }`) for Plan 02 to consume.
+After completion, create `.planning/phases/02-homepage-rails/02-01-SUMMARY.md` documenting: the exact tilt math used, the chosen reduced-motion mechanism (the `motion-ok` rune-bound class), and the VideoCard prop contract (`{ video, eager }`) for Plan 02 to consume.
 </output>
+</content>
+</invoke>
