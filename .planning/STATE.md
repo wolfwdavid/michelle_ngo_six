@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-02-data-layer-PLAN.md
-last_updated: "2026-06-14T17:56:42.968Z"
+stopped_at: Completed 01-03-app-shell-PLAN.md
+last_updated: "2026-06-14T18:04:58.752Z"
 progress:
   total_phases: 5
   completed_phases: 0
   total_plans: 4
-  completed_plans: 2
+  completed_plans: 3
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-06-14)
 ## Current Position
 
 Phase: 01 (foundation-deploy) — EXECUTING
-Plan: 3 of 4
+Plan: 4 of 4
 
 ## Performance Metrics
 
@@ -48,6 +48,7 @@ Plan: 3 of 4
 *Updated after each plan completion*
 | Phase 01-foundation-deploy P01 | 43 | 3 tasks | 24 files |
 | Phase 01 P02 | 18 | 3 tasks | 71 files |
+| Phase 01 P03 | 6 | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -63,6 +64,8 @@ Recent decisions affecting current work:
 - [Phase 01-foundation-deploy]: Scoped handleHttpError to the pending poster preload so the foundation build stays green until Plan 02-02 ships posters; strict prerender preserved otherwise.
 - [Phase 01]: Renamed storage prefix mnp_three_ -> mnp_six_ for an isolated localStorage namespace (Trap D origin-sharing mitigation).
 - [Phase 01]: Removed the 01-01 temporary handleHttpError poster-preload allowance; strict prerender restored now that static/posters/ ships vimeo-264677021.jpg.
+- [Phase 01]: App shell: kept nav hrefs intact and scope-allowed forward-phase route 404s via prerender handleHttpError, instead of rewriting hrefs to base — keeps navigation IA correct and build green.
+- [Phase 01]: Scrubbed forward-phase component name (ReelStage) from ported chrome comments to satisfy the no-Phase-2-reference gate; behavior byte-identical to _three.
 
 ### Pending Todos
 
@@ -78,6 +81,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-14T17:56:28.972Z
-Stopped at: Completed 01-02-data-layer-PLAN.md
+Last session: 2026-06-14T18:04:45.177Z
+Stopped at: Completed 01-03-app-shell-PLAN.md
 Resume file: None

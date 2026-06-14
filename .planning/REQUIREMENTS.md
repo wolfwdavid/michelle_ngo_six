@@ -12,7 +12,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **FND-01**: SvelteKit 5 + adapter-static project scaffolded with pnpm, building cleanly
 - [x] **FND-02**: Tailwind v4 + OKLCH design tokens and self-hosted fonts (Source Serif 4, Inter, JetBrains Mono) ported from `_three`
 - [x] **FND-03**: Zod-validated `videos.json` (~70 videos, 8 categories) plus `categories.ts`/`schema.ts` ported and loading
-- [ ] **FND-04**: App shell — root layout, top navigation, mobile menu, footer
+- [x] **FND-04**: App shell — root layout, top navigation, mobile menu, footer
 
 ### Homepage
 
@@ -87,7 +87,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FND-01 | Phase 1 | Complete |
 | FND-02 | Phase 1 | Complete |
 | FND-03 | Phase 1 | Complete |
-| FND-04 | Phase 1 | Pending |
+| FND-04 | Phase 1 | Complete |
 | DEP-01 | Phase 1 | Complete |
 | DEP-02 | Phase 1 | Pending |
 | DEP-03 | Phase 1 | Pending |
