@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-01-scaffold-tooling-tokens-PLAN.md
-last_updated: "2026-06-14T17:50:33.620Z"
+stopped_at: Completed 01-02-data-layer-PLAN.md
+last_updated: "2026-06-14T17:56:42.968Z"
 progress:
   total_phases: 5
   completed_phases: 0
   total_plans: 4
-  completed_plans: 1
+  completed_plans: 2
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-06-14)
 ## Current Position
 
 Phase: 01 (foundation-deploy) — EXECUTING
-Plan: 2 of 4
+Plan: 3 of 4
 
 ## Performance Metrics
 
@@ -47,6 +47,7 @@ Plan: 2 of 4
 
 *Updated after each plan completion*
 | Phase 01-foundation-deploy P01 | 43 | 3 tasks | 24 files |
+| Phase 01 P02 | 18 | 3 tasks | 71 files |
 
 ## Accumulated Context
 
@@ -60,6 +61,8 @@ Recent decisions affecting current work:
 - 8 video categories (not the 5 WordPress disciplines) — matches existing `videos.json`, zero re-tagging.
 - Depth/motion via CSS transforms, not WebGL — cinematic feel without sacrificing LCP on GitHub Pages.
 - [Phase 01-foundation-deploy]: Scoped handleHttpError to the pending poster preload so the foundation build stays green until Plan 02-02 ships posters; strict prerender preserved otherwise.
+- [Phase 01]: Renamed storage prefix mnp_three_ -> mnp_six_ for an isolated localStorage namespace (Trap D origin-sharing mitigation).
+- [Phase 01]: Removed the 01-01 temporary handleHttpError poster-preload allowance; strict prerender restored now that static/posters/ ships vimeo-264677021.jpg.
 
 ### Pending Todos
 
@@ -75,6 +78,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-14T17:50:17.577Z
-Stopped at: Completed 01-01-scaffold-tooling-tokens-PLAN.md
+Last session: 2026-06-14T17:56:28.972Z
+Stopped at: Completed 01-02-data-layer-PLAN.md
 Resume file: None
