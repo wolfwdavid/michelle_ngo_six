@@ -52,9 +52,9 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Deploy
 
 - [x] **DEP-01**: Site builds static and prerenders all routes (adapter-static)
-- [ ] **DEP-02**: GitHub Pages workflow deploys with `BASE_PATH=/michelle_ngo_six`
-- [ ] **DEP-03**: No hardcoded absolute asset paths; all assets resolve under the base path
-- [ ] **DEP-04**: `sitemap.xml` and `.nojekyll` generated; site reachable at `wolfwdavid.github.io/michelle_ngo_six`
+- [x] **DEP-02**: GitHub Pages workflow deploys with `BASE_PATH=/michelle_ngo_six`
+- [x] **DEP-03**: No hardcoded absolute asset paths; all assets resolve under the base path
+- [x] **DEP-04**: `sitemap.xml` and `.nojekyll` generated; site reachable at `wolfwdavid.github.io/michelle_ngo_six`
 
 ## v2 Requirements
 
@@ -89,9 +89,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FND-03 | Phase 1 | Complete |
 | FND-04 | Phase 1 | Complete |
 | DEP-01 | Phase 1 | Complete |
-| DEP-02 | Phase 1 | Pending |
-| DEP-03 | Phase 1 | Pending |
-| DEP-04 | Phase 1 | Pending |
+| DEP-02 | Phase 1 | Complete |
+| DEP-03 | Phase 1 | Complete |
+| DEP-04 | Phase 1 | Complete |
 | HOME-01 | Phase 2 | Pending |
 | HOME-02 | Phase 2 | Pending |
 | HOME-03 | Phase 2 | Pending |
