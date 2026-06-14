@@ -18,16 +18,12 @@ const config = {
       base: BASE_PATH,
     },
     prerender: {
-      // The app-shell chrome (TopNav/MobileMenu/Footer) links to routes that
-      // do not exist yet this phase (/about, /press, /contact,
-      // /pbs-american-portrait/). The prerender crawler follows those <a href>s
-      // from the prerendered homepage and would 404 the build.
-      // Both /work and /work/[category] are now real, prerendered routes (the
-      // index is crawled and the 8 category pages prerender via entries()), so
-      // NO /work* path remains in the allow-list — any /work 404 is a genuine
-      // build failure.
-      // These hrefs are correct for when Phases 4 ships the remaining routes, so
-      // we keep them intact and scope-allow ONLY the known forward-phase 404s.
+      // /about, /contact, and /press are now real, prerendered routes, so they
+      // no longer appear in the allow-list — any 404 on them is a genuine build
+      // failure. /work and /work/[category] are likewise real and prerendered.
+      // The only entry left is /pbs-american-portrait/, which is out of v1 scope
+      // and deferred to a later release; its allow-list entry keeps the crawler
+      // from 404ing on the Footer's PBS category link.
       // Any UNEXPECTED 404 (typo, broken asset, etc.) still fails the build.
       //
       // /watch/[id] is NOT pending — Plan 02-04 ships a real (Phase-2 stub)
@@ -43,12 +39,7 @@ const config = {
       // matching so the allow-list works in both the empty-base local build
       // and the base-path CI/Pages build.
       handleHttpError: ({ status, path, message }) => {
-        const PENDING_ROUTES = new Set([
-          '/about',
-          '/press',
-          '/contact',
-          '/pbs-american-portrait/',
-        ]);
+        const PENDING_ROUTES = new Set(['/pbs-american-portrait/']);
         const debased =
           BASE_PATH && path.startsWith(BASE_PATH)
             ? path.slice(BASE_PATH.length) || '/'
@@ -58,7 +49,7 @@ const config = {
           status === 404 &&
           (PENDING_ROUTES.has(debased) || PENDING_ROUTES.has(normalized))
         ) {
-          // Forward-phase route — expected to 404 until Phase 4 builds it.
+          // Deferred route — out of v1 scope; expected to 404 for now.
           return;
         }
         throw new Error(message);
