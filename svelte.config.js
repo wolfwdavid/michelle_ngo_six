@@ -1,6 +1,8 @@
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
+const BASE_PATH = process.env.BASE_PATH ?? '';
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   preprocess: vitePreprocess(),
@@ -13,7 +15,7 @@ const config = {
       strict: true,
     }),
     paths: {
-      base: process.env.BASE_PATH ?? '',
+      base: BASE_PATH,
     },
     prerender: {
       // The app-shell chrome (TopNav/MobileMenu/Footer) links to routes that
@@ -23,6 +25,12 @@ const config = {
       // These hrefs are correct for when Phases 2-4 ship the routes, so we keep
       // them intact and scope-allow ONLY the known forward-phase 404s here.
       // Any UNEXPECTED 404 (typo, broken asset, etc.) still fails the build.
+      //
+      // NOTE: when building with BASE_PATH set (the GitHub Pages deploy uses
+      // BASE_PATH=/michelle_ngo_six), the prerenderer reports paths PREFIXED
+      // with the base (e.g. /michelle_ngo_six/work). Strip that prefix before
+      // matching so the allow-list works in both the empty-base local build
+      // and the base-path CI/Pages build.
       handleHttpError: ({ status, path, message }) => {
         const PENDING_ROUTES = new Set([
           '/work',
@@ -31,11 +39,15 @@ const config = {
           '/contact',
           '/pbs-american-portrait/',
         ]);
-        const normalized = path.replace(/\/$/, '') || '/';
+        const debased =
+          BASE_PATH && path.startsWith(BASE_PATH)
+            ? path.slice(BASE_PATH.length) || '/'
+            : path;
+        const normalized = debased.replace(/\/$/, '') || '/';
         const isPendingWorkCategory = normalized.startsWith('/work/');
         if (
           status === 404 &&
-          (PENDING_ROUTES.has(path) ||
+          (PENDING_ROUTES.has(debased) ||
             PENDING_ROUTES.has(normalized) ||
             isPendingWorkCategory)
         ) {
