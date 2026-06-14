@@ -61,7 +61,11 @@ Plans:
   2. A per-category page (`/work/[category]`) lists every video in that category.
   3. Each video's watch page (`/watch/[id]`) embeds a working Vimeo/YouTube player and shows title, category, and description/metadata.
   4. The watch page shows a "related work" rail, and video iframes lazy-load (only the hero poster is eager) so LCP is protected.
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 03-01-watch-player-PLAN.md — Replace the /watch/[id] stub with the full click-to-load player (poster→iframe by source), title/category/uploader/description metadata, and a same-category "Related work" rail (WCH-01, WCH-02, WCH-03, WCH-04)
+- [ ] 03-02-work-index-PLAN.md — Port/adapt a dual-mode FilterPillBar (All + 8 categories) + the prerendered /work index: responsive VideoCard grid with client-side filtering; prune /work from PENDING_ROUTES (BRW-01, BRW-03)
+- [ ] 03-03-work-category-PLAN.md — /work/[category] route: entries() prerendering all 8 category slugs + load() (404 on unknown), title/count + FilterPillBar (link mode) + grid; prune the /work/ prefix from PENDING_ROUTES (BRW-02)
 
 ### Phase 4: Content Pages
 **Goal**: The supporting content pages are live and the contact information has a single source of truth used everywhere.
@@ -94,6 +98,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation & Deploy | 0/4 | Not started | - |
 | 2. Homepage Rails | 0/TBD | Not started | - |
-| 3. Browse & Watch | 0/TBD | Not started | - |
+| 3. Browse & Watch | 0/3 | Not started | - |
 | 4. Content Pages | 0/TBD | Not started | - |
 | 5. Design Polish | 0/TBD | Not started | - |
