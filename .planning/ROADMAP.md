@@ -65,7 +65,7 @@ Plans:
 Plans:
 - [x] 03-01-watch-player-PLAN.md — Replace the /watch/[id] stub with the full click-to-load player (poster→iframe by source), title/category/uploader/description metadata, and a same-category "Related work" rail (WCH-01, WCH-02, WCH-03, WCH-04)
 - [x] 03-02-work-index-PLAN.md — Port/adapt a dual-mode FilterPillBar (All + 8 categories) + the prerendered /work index: responsive VideoCard grid with client-side filtering; prune /work from PENDING_ROUTES (BRW-01, BRW-03)
-- [ ] 03-03-work-category-PLAN.md — /work/[category] route: entries() prerendering all 8 category slugs + load() (404 on unknown), title/count + FilterPillBar (link mode) + grid; prune the /work/ prefix from PENDING_ROUTES (BRW-02)
+- [x] 03-03-work-category-PLAN.md — /work/[category] route: entries() prerendering all 8 category slugs + load() (404 on unknown), title/count + FilterPillBar (link mode) + grid; prune the /work/ prefix from PENDING_ROUTES (BRW-02)
 
 ### Phase 4: Content Pages
 **Goal**: The supporting content pages are live and the contact information has a single source of truth used everywhere.

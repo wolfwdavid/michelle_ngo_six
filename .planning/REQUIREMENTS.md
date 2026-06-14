@@ -25,7 +25,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Browse
 
 - [x] **BRW-01**: Visitor can open a `/work` page presenting all categories
-- [ ] **BRW-02**: Visitor can open a per-category page (`/work/[category]`) listing every video in that category
+- [x] **BRW-02**: Visitor can open a per-category page (`/work/[category]`) listing every video in that category
 - [x] **BRW-03**: Visitor can switch between categories via a filter/nav control
 
 ### Watch
@@ -98,7 +98,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | HOME-04 | Phase 2 | Complete |
 | HOME-05 | Phase 2 | Complete |
 | BRW-01 | Phase 3 | Complete |
-| BRW-02 | Phase 3 | Pending |
+| BRW-02 | Phase 3 | Complete |
 | BRW-03 | Phase 3 | Complete |
 | WCH-01 | Phase 3 | Complete |
 | WCH-02 | Phase 3 | Complete |
