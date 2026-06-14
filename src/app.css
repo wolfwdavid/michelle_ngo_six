@@ -102,6 +102,21 @@
   --color-cat-personal: oklch(0.78 0.18 330);
   --color-cat-edunon: oklch(0.78 0.18 90);
   --color-cat-other: oklch(0.78 0.05 250);
+
+  /* Phase 2 — Homepage rails motion + layout tokens (UI-SPEC § Motion Tokens,
+   * § Layout). --ease-cinematic is the shared easing for card tilt/scale,
+   * hero crossfade, and chevron fades. --content-max centers contained rails;
+   * --page-gutter is the contained-content inline gutter (mobile→tablet+). */
+  --ease-cinematic: cubic-bezier(0.4, 0, 0.2, 1);
+  --content-max: 1440px;
+  --page-gutter: 16px;
+}
+
+/* UI-SPEC § Layout: gutter widens to 24px at the sm breakpoint (≥640px). */
+@media (min-width: 640px) {
+  :root {
+    --page-gutter: 24px;
+  }
 }
 
 /* Layout primitive — Phase 4 D-01.
@@ -142,5 +157,19 @@
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+/* Global reduced-motion backstop (UI-SPEC § Motion Tokens). This is a defensive
+ * CSS net IN ADDITION TO the `motion.prefersReducedMotion` rune that components
+ * gate behavior on: even if a component forgets the rune, near-zero durations
+ * here neutralize animations/transitions for users who request reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
