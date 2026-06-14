@@ -47,7 +47,7 @@ Plans:
   4. With `prefers-reduced-motion` enabled, the hero and rails do not autoplay or auto-advance.
 **Plans**: 4 plans
 Plans:
-- [ ] 02-01-tokens-and-videocard-PLAN.md — Motion tokens (--ease-cinematic, reduced-motion backstop) + cinematic VideoCard with cursor-tilt, accent ring, /watch link (HOME-03)
+- [x] 02-01-tokens-and-videocard-PLAN.md — Motion tokens (--ease-cinematic, reduced-motion backstop) + cinematic VideoCard with cursor-tilt, accent ring, /watch link (HOME-03)
 - [ ] 02-02-category-rail-PLAN.md — CategoryRail: scroll-snap track of VideoCards, desktop hover chevrons (extreme-hide), keyboard arrow/Home/End nav, empty-omit (HOME-02, HOME-03)
 - [ ] 02-03-hero-carousel-PLAN.md — Rotating featured HeroCarousel (poster+title, reel-first), 7000ms/600ms crossfade auto-advance, dots, pause-on-hover, reduced-motion static (HOME-01, HOME-05)
 - [ ] 02-04-homepage-assembly-and-watch-stub-PLAN.md — Assemble +page.svelte (hero + rails in display order) + minimal /watch/[id] stub (entries() prerenders all 56) + green build/reduced-motion gate (HOME-01..05)

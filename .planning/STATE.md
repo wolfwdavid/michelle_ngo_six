@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Local tasks of 01-04-sitemap-and-deploy done (sitemap + workflow committed); push + Pages-enable + live human-verify delegated to orchestrator
-last_updated: "2026-06-14T18:20:02.874Z"
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-06-14T19:48:39.668Z"
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 8
+  completed_plans: 5
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** A visitor lands on the homepage and can immediately watch Michelle's work — browsing films/videos by category in an engaging, cinematic, scroll-and-play interface.
-**Current focus:** Phase 01 — foundation-deploy
+**Current focus:** Phase 02 — homepage-rails
 
 ## Current Position
 
-Phase: 2
-Plan: Not started
+Phase: 02 (homepage-rails) — EXECUTING
+Plan: 2 of 4
 
 ## Performance Metrics
 
@@ -50,6 +50,7 @@ Plan: Not started
 | Phase 01 P02 | 18 | 3 tasks | 71 files |
 | Phase 01 P03 | 6 | 3 tasks | 6 files |
 | Phase 01-foundation-deploy P04 | 9 | 2 tasks | 3 files |
+| Phase 02 P01 | 5min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,7 @@ Recent decisions affecting current work:
 - [Phase 01]: Scrubbed forward-phase component name (ReelStage) from ported chrome comments to satisfy the no-Phase-2-reference gate; behavior byte-identical to _three.
 - [Phase 01-foundation-deploy]: Sitemap is phase-scoped (homepage only, production canonical host); minimal Pages workflow forked from _four with dynamic BASE_PATH=/${{ github.event.repository.name }}.
 - [Phase 01-foundation-deploy]: Made prerender handleHttpError allow-list base-aware (strip BASE_PATH prefix before matching) so the base-path CI/Pages build does not 404 on forward-phase nav routes.
+- [Phase 02]: VideoCard reduced-motion gated via rune-bound motion-ok class (not motion-safe:); tilt clamped to ±6deg
 
 ### Pending Todos
 
@@ -84,6 +86,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-14T18:12:59.218Z
-Stopped at: Local tasks of 01-04-sitemap-and-deploy done (sitemap + workflow committed); push + Pages-enable + live human-verify delegated to orchestrator
+Last session: 2026-06-14T19:48:22.584Z
+Stopped at: Completed 02-01-PLAN.md
 Resume file: None
