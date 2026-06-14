@@ -17,10 +17,10 @@ A visitor lands on the homepage and can immediately *watch Michelle's work* — 
 - ✓ Zod-validated `videos.json` data layer (56 videos, 8 categories) + state runes — Phase 1
 - ✓ App shell (root layout, TopNav, MobileMenu, Footer, ContactBlock) — Phase 1
 - ✓ Static prerender live on GitHub Pages at `/michelle_ngo_six` (sitemap, base-path assets) — Phase 1
+- ✓ YouTube-style homepage: rotating featured hero + horizontal category rails (cinematic VideoCard, scroll-snap, keyboard nav) — Phase 2
 
 ### Active
 
-- [ ] YouTube-style homepage: featured hero + horizontal category rails of video cards
 - [ ] Browse work by category; open an individual watch page per video
 - [ ] About page with approved bio
 - [ ] Contact page + reusable contact block (email, phone, Vimeo, LinkedIn, IMDb)
@@ -96,4 +96,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-14 after Phase 1 (Foundation & Deploy) — site live on GitHub Pages*
+*Last updated: 2026-06-14 after Phase 2 (Homepage Rails) — YouTube-style homepage live*
