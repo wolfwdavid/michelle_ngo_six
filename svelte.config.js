@@ -19,9 +19,12 @@ const config = {
     },
     prerender: {
       // The app-shell chrome (TopNav/MobileMenu/Footer) links to routes that
-      // do not exist yet this phase (/work, /work/[category], /about, /press,
+      // do not exist yet this phase (/work/[category], /about, /press,
       // /contact, /pbs-american-portrait/). The prerender crawler follows
       // those <a href>s from the prerendered homepage and would 404 the build.
+      // The bare /work index is now a real, prerendered route (it is crawled
+      // and built), so it is NOT in the allow-list; only the /work/[category]
+      // filter routes remain pending until they ship.
       // These hrefs are correct for when Phases 2-4 ship the routes, so we keep
       // them intact and scope-allow ONLY the known forward-phase 404s here.
       // Any UNEXPECTED 404 (typo, broken asset, etc.) still fails the build.
@@ -40,7 +43,6 @@ const config = {
       // and the base-path CI/Pages build.
       handleHttpError: ({ status, path, message }) => {
         const PENDING_ROUTES = new Set([
-          '/work',
           '/about',
           '/press',
           '/contact',
