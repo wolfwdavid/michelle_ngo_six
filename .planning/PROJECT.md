@@ -19,15 +19,13 @@ A visitor lands on the homepage and can immediately *watch Michelle's work* — 
 - ✓ Static prerender live on GitHub Pages at `/michelle_ngo_six` (sitemap, base-path assets) — Phase 1
 - ✓ YouTube-style homepage: rotating featured hero + horizontal category rails (cinematic VideoCard, scroll-snap, keyboard nav) — Phase 2
 - ✓ Browse work by category (`/work` + `/work/[category]`) and watch any video on `/watch/[id]` (click-to-load player, metadata, related rail) — Phase 3
+- ✓ About (approved bio), Contact, and Press pages with a single-source-of-truth ContactBlock (email, phone, Vimeo, LinkedIn, IMDb) — Phase 4
+- ✓ Static prerender deployed to GitHub Pages at `/michelle_ngo_six` — Phase 1
 
 ### Active
 
-- [ ] About page with approved bio
-- [ ] Contact page + reusable contact block (email, phone, Vimeo, LinkedIn, IMDb)
-- [ ] Press page
-- [ ] Dark, cinematic, film-forward visual design with tasteful 3D depth & motion
-- [ ] Responsive + accessible (keyboard nav, `prefers-reduced-motion`, focus rings)
-- [ ] Static prerender deployed to GitHub Pages at `/michelle_ngo_six`
+- [ ] Dark, cinematic, film-forward visual design with tasteful 3D depth & motion (final polish pass)
+- [ ] Responsive + accessible (keyboard nav, `prefers-reduced-motion`, focus rings) — final sweep
 
 ### Out of Scope
 
@@ -96,4 +94,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-14 after Phase 3 (Browse & Watch) — work browsing + watch pages live*
+*Last updated: 2026-06-14 after Phase 4 (Content Pages) — about/contact/press live*
