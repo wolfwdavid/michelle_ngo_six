@@ -1,5 +1,5 @@
 <!--
-  VideoCard — Phase 2 Plan 02-01 (HOME-03). The leaf primitive every homepage
+  VideoCard (HOME-03). The leaf primitive every homepage
   rail renders. A real <a> link to /watch/{id} with CSS-only cinematic depth:
   cursor-tilt (clamped ±6deg), 1.03 scale, lift shadow, category-accent ring,
   poster brighten, and a title fade-up — all gated on the single

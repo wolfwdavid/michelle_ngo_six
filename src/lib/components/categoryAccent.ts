@@ -1,14 +1,13 @@
 /**
  * Static map from Category name -> Tailwind class string for the per-category
- * accent color (Phase 1 D-12 + Phase 4 D-02). The ONLY place a category-to-color
+ * accent color. The ONLY place a category-to-color
  * binding lives.
  *
  * Why a static literal map (not a computed slug):
  *   Tailwind v4's scanner reads source files and collects utility class names
  *   that appear LITERALLY. A dynamic `text-cat-${categoryToSlug(c)}` would
  *   compute the class at runtime but Tailwind would NEVER generate it at build
- *   time — the class wouldn't exist in the bundled CSS (Pitfall 7 carry-forward
- *   from _four/src/lib/components/categoryAccent.ts:7-13).
+ *   time — the class wouldn't exist in the bundled CSS.
  *
  *   This file has every text-cat / bg-cat / ring-cat string spelled out verbatim
  *   (see the Record literals below), so the scanner finds them all and Tailwind
@@ -17,7 +16,7 @@
  *   so a future refactor that DRY-up s the map into a dynamic template breaks
  *   the test.
  *
- * Three accent flavors (Phase 4 D-02 active-pill compound style):
+ * Three accent flavors (active-pill compound style):
  *   text-cat-<slug>       — accent-colored text on the active pill
  *   bg-cat-<slug>/15      — accent backgrounded at low alpha (15/100)
  *   ring-cat-<slug>/40    — accent-colored ring at medium alpha (40/100)

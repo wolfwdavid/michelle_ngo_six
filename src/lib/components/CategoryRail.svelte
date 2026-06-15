@@ -1,7 +1,7 @@
 <!--
-  CategoryRail — Phase 2 Plan 02-02 (HOME-02, HOME-03). The repeating unit of the
+  CategoryRail (HOME-02, HOME-03). The repeating unit of the
   homepage: one labeled, horizontally scroll-snapping rail of VideoCards for a
-  single category. Plan 04 instantiates one per category via
+  single category. The homepage instantiates one per category via
   getCategoriesInDisplayOrder().
 
   WHAT THIS COMPONENT GUARANTEES (UI-SPEC § Rail Spec):

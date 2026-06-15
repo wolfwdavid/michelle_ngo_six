@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 /*
- * `_three` design system — Phase 1 day-one tokens.
+ * Design system — day-one tokens.
  *
- * Locked decisions:
- *   D-02  bg canvas: --color-neutral-950 = oklch(0.16 0 0)
- *   D-05  Keyboard focus: double-ring (outer cream + inner dark) — defensive
+ * Conventions:
+ *   bg canvas: --color-neutral-950 = oklch(0.16 0 0)
+ *   Keyboard focus: double-ring (outer cream + inner dark) — defensive
  *         against arbitrary dark video bgs AND bright posterized frames
- *   D-06  Primary ring color: cream/warm-white ~oklch(0.98 0.02 80)
- *   D-07  Ring weight: 2px + 2px outline-offset
- *   D-08  Single global :focus-visible rule — components inherit
- *   D-09  Display serif: Source Serif 4 → --font-display (400/600/700)
- *   D-10  Mono: JetBrains Mono → --font-mono (400)
- *   D-11  Neutral sans: Inter → --font-sans (400/500/600)
- *   D-12  8 OKLCH category accents (verbatim from _four/src/app.css)
- *   D-13  Self-hosted woff2 in /fonts/, font-display: swap, zero cross-origin
+ *   Primary ring color: cream/warm-white ~oklch(0.98 0.02 80)
+ *   Ring weight: 2px + 2px outline-offset
+ *   Single global :focus-visible rule — components inherit
+ *   Display serif: Source Serif 4 → --font-display (400/600/700)
+ *   Mono: JetBrains Mono → --font-mono (400)
+ *   Neutral sans: Inter → --font-sans (400/500/600)
+ *   8 OKLCH category accents
+ *   Self-hosted woff2 in /fonts/, font-display: swap, zero cross-origin
  */
 
-/* D-13: self-hosted woff2, font-display: swap. Paths use Vite's static asset
+/* Self-hosted woff2, font-display: swap. Paths use Vite's static asset
  * resolution — /fonts/* at runtime resolves to /michelle_ngo_six/fonts/*
  * under BASE_PATH. */
 @font-face {
@@ -71,13 +71,13 @@
 }
 
 @theme {
-  /* Typography (D-09, D-10, D-11) — Tailwind v4 reads --font-* vars to
+  /* Typography — Tailwind v4 reads --font-* vars to
    * synthesize utility classes: font-display, font-mono, font-sans. */
   --font-display: "Source Serif 4", ui-serif, Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
-  /* Focus tokens (D-06, D-07) — consumed by the global :focus-visible rule
+  /* Focus tokens — consumed by the global :focus-visible rule
    * outside this @theme block. */
   --ring-focus: oklch(0.98 0.02 80); /* outer cream/warm-white */
   --ring-focus-inner: oklch(0.16 0 0); /* inner dark, matches neutral-950 */
@@ -91,9 +91,9 @@
   --color-neutral-700: oklch(0.4 0 0);
   --color-neutral-800: oklch(0.3 0 0);
   --color-neutral-900: oklch(0.22 0 0);
-  --color-neutral-950: oklch(0.16 0 0); /* D-02 canonical dark canvas */
+  --color-neutral-950: oklch(0.16 0 0); /* canonical dark canvas */
 
-  /* D-12 — 8 OKLCH category accents (verbatim from _four/src/app.css) */
+  /* 8 OKLCH category accents */
   --color-cat-pbs: oklch(0.72 0.21 25);
   --color-cat-promos: oklch(0.78 0.18 60);
   --color-cat-branded: oklch(0.72 0.18 180);
@@ -103,7 +103,7 @@
   --color-cat-edunon: oklch(0.78 0.18 90);
   --color-cat-other: oklch(0.78 0.05 250);
 
-  /* Phase 2 — Homepage rails motion + layout tokens (UI-SPEC § Motion Tokens,
+  /* Homepage rails motion + layout tokens (UI-SPEC § Motion Tokens,
    * § Layout). --ease-cinematic is the shared easing for card tilt/scale,
    * hero crossfade, and chevron fades. --content-max centers contained rails;
    * --page-gutter is the contained-content inline gutter (mobile→tablet+). */
@@ -151,8 +151,8 @@
   }
 }
 
-/* Layout primitive — Phase 4 D-01.
- * `_three`'s chrome eats viewport: TopNav (h-14 = 3.5rem) + FilterPillBar
+/* Layout primitive.
+ * Chrome eats viewport: TopNav (h-14 = 3.5rem) + FilterPillBar
  * (pl-2 / pr-2 / py-2 = ~2.25rem) stack above the reel. The reel-section
  * height becomes calc(100svh - var(--chrome-nav-height) - var(--chrome-pill-height,0px))
  * inside <ReelStage>. FilterPillBar reads --chrome-nav-height for its sticky
@@ -162,7 +162,7 @@
   --chrome-pill-height: 2.5rem;
 }
 
-/* D-05, D-08: single global :focus-visible rule. Double ring via
+/* Single global :focus-visible rule. Double ring via
  * outline (outer cream) + box-shadow (inner dark). Components opt in
  * automatically — a forgetful component cannot become invisible to
  * keyboard users.

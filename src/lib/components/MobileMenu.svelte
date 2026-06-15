@@ -1,23 +1,22 @@
 <!--
-  Phase 4 D-07: full-screen mobile overlay menu. Mirrors
-  ../michelle_ngo_four/src/lib/components/MobileMenu.svelte close to verbatim.
+  Full-screen mobile overlay menu.
 
-  Decisions implemented:
-    D-07  — instant overlay (no transition); sidesteps reduced-motion handling.
-    D-08  — on mount, the menu rune ALREADY has menuOpen=true (TopNav's
+  Behaviour:
+    - instant overlay (no transition); sidesteps reduced-motion handling.
+    - on mount, the menu rune ALREADY has menuOpen=true (TopNav's
             hamburger called openMenu() before rendering this component).
-            A later phase wires the reel container to OR menu.menuOpen into
+            The reel container ORs menu.menuOpen into
             its documentHidden $state so the existing reel:visibility
             broadcast pauses iframes within 300ms.
-    D-12  — Escape closes menu (modal pattern); document keydown listener
+    - Escape closes menu (modal pattern); document keydown listener
             attached in $effect with cleanup on unmount. The same $effect
             also runs the full modal contract: focus is moved into the dialog
             on open, Tab / Shift+Tab is trapped within it, body scroll is
             locked, and focus is restored to the trigger on close.
-    D-15  — data-sveltekit-preload-data="hover" on every link.
+    - data-sveltekit-preload-data="hover" on every link.
 
   ESLint: svelte/no-navigation-without-resolve disabled via per-file
-  override in eslint.config.js (Plan 04-01 pre-registered).
+  override in eslint.config.js.
 -->
 <script lang="ts">
   import { base } from '$app/paths';

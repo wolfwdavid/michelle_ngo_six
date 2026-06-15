@@ -1,9 +1,9 @@
 /**
- * Phase 01 Plan 01-04 (DEP-04): build-time-generated sitemap.xml.
+ * Build-time-generated sitemap.xml (DEP-04).
  *
- * Phase-scoped: emits ONLY the routes that exist this phase — the homepage `/`.
- * Routes are added here as later phases ship them:
- *   - Phase 2-4 will add /work, /work/[category], /watch/[id], /about, /press,
+ * Emits ONLY the routes that currently exist — the homepage `/`.
+ * Routes are added here as new surfaces ship:
+ *   - /work, /work/[category], /watch/[id], /about, /press,
  *     /contact, /pbs-american-portrait — at which point each gets a <url> block.
  * For now only `/` exists, so the sitemap advertises exactly one URL.
  *

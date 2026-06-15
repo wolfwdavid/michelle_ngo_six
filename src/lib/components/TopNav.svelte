@@ -1,37 +1,31 @@
 <!--
-  Phase 4 NAV-01: cinematic chrome TopNav — wordmark + 8 categories +
+  Cinematic chrome TopNav (NAV-01) — wordmark + 8 categories +
   About/Press/Contact + hamburger. Chrome fades DURING reel scroll on
-  /work, /work/[category], /pbs-american-portrait per D-05 + D-06.
+  /work, /work/[category], /pbs-american-portrait.
   Surfaces on scroll-stop (600ms), hover-near-top (80px), focus-within,
   and tap.
 
-  Mirrors ../michelle_ngo_four/src/lib/components/TopNav.svelte shape
-  (the endsWith active-state helper at lines 100-121 is copied VERBATIM
-  including the PBS dual-route guard at lines 117-119 — load-bearing
+  The endsWith active-state helper is load-bearing
   for NAV-01 "PBS link active on both /work/pbs-american-portrait/
-  AND /pbs-american-portrait/" per PBS-03 forward-ship).
+  AND /pbs-american-portrait/" per PBS-03 forward-ship.
 
-  Decisions implemented:
-    D-05 — scroll-event driven chrome fade (NOT IO-driven; IO is
-           Phase 3 viewport-windowing territory). 600ms scroll-stop debounce.
-    D-06 — fade scope = reel routes only; page.route.id reactive read
-           inside $effect. INVERTS _four's hero-transparent rule.
-    D-07 — MobileMenu mirrors _four close to verbatim; opens via
-           openMenu() rune write; closes via closeMenu().
-    D-08 — opening MobileMenu writes menuOpen=true to $lib/state/menu;
-           a later phase ORs that into the reel container's documentHidden
-           so the existing reel:visibility context broadcast (Phase 3 D-12)
-           pauses iframes within 300ms. Bridge is dormant in this plan
-           (rune exists; the reel-container edit lands in a later phase).
-    D-11 — skip-link target is the <main> wrapper in +layout.svelte;
+  Behaviour:
+    - scroll-event driven chrome fade (NOT IO-driven). 600ms scroll-stop debounce.
+    - fade scope = reel routes only; page.route.id reactive read
+           inside $effect.
+    - MobileMenu opens via openMenu() rune write; closes via closeMenu().
+    - opening MobileMenu writes menuOpen=true to $lib/state/menu;
+           the reel container ORs that into its documentHidden
+           so the existing reel:visibility context broadcast
+           pauses iframes within 300ms.
+    - skip-link target is the <main> wrapper in +layout.svelte;
            this component is mounted ABOVE <main> per +layout.svelte edit.
-    D-13/D-15 — active-state endsWith + hover-prefetch.
+    - active-state endsWith + hover-prefetch.
 
   ESLint: svelte/no-navigation-without-resolve disabled for this file via
-  the per-file override in eslint.config.js (Plan 04-01 pre-registered).
-  Mirror of _four/TopNav.svelte:25-30 wording.
+  the per-file override in eslint.config.js.
 
-  Anti-pattern grep gates (enforced via this plan's verify block):
+  Anti-pattern grep gates (enforced via the verify block):
     - NO display:none / visibility:hidden on the <header> (would hide
       chrome from SR users per PROJECT.md a11y constraint — fade uses
       opacity-0 + pointer-events-none ONLY).
@@ -50,19 +44,19 @@
 
   const categories = getCategoriesInDisplayOrder();
 
-  // D-05 chrome-fade local signals — only consumed when onReelRoute is true.
+  // Chrome-fade local signals — only consumed when onReelRoute is true.
   let hoverNearTop = $state(false);
   let focusWithinChrome = $state(false);
   let recentlyTapped = $state(false);
   let tapResetHandle: ReturnType<typeof setTimeout> | undefined;
   let headerEl = $state<HTMLElement | null>(null);
 
-  // D-06 — fade scope derives from page.route.id; read INSIDE $effect for reactivity (mirrors _four/TopNav.svelte:50 Pitfall 2 note).
+  // Fade scope derives from page.route.id; read INSIDE $effect for reactivity.
   const REEL_ROUTE_IDS: ReadonlySet<string> = new Set([
     '/work',
     '/work/[category]',
     '/pbs-american-portrait',
-    '/press', // Plan 06-01 / D-16 — chrome-fade scope extends to /press (scroll-snap reel surface like /work and PBS landing)
+    '/press', // chrome-fade scope extends to /press (scroll-snap reel surface like /work and PBS landing)
   ]);
 
   $effect(() => {
@@ -77,7 +71,7 @@
 
     // Attach scroll listener on the reel container. Matches BOTH reel-surface labels:
     // [aria-label="Filmography reel"] (reel container — /work, /work/[category], /pbs-american-portrait/)
-    // and [aria-label="Press credits reel"] (/press's bespoke container — D-16). Exactly one exists
+    // and [aria-label="Press credits reel"] (/press's bespoke container). Exactly one exists
     // per route, so the selector-list resolves unambiguously. Fall back to window if not yet
     // queryable (mount-order timing — safe no-op; the $effect re-runs on route change).
     const reelContainer = document.querySelector(
@@ -85,11 +79,11 @@
     ) as HTMLElement | null;
     initScrollIdle(reelContainer ?? window);
 
-    // D-05: hover-near-top zone (top 80px). Use pointermove on document, filter by clientY.
+    // Hover-near-top zone (top 80px). Use pointermove on document, filter by clientY.
     function onPointerMove(e: PointerEvent): void {
       hoverNearTop = e.clientY < 80;
     }
-    // D-05: focus-within signal — focusin/focusout filtered to chrome element ref.
+    // Focus-within signal — focusin/focusout filtered to chrome element ref.
     function onFocusIn(e: FocusEvent): void {
       if (headerEl && e.target instanceof Node && headerEl.contains(e.target)) {
         focusWithinChrome = true;
@@ -102,7 +96,7 @@
       }
       focusWithinChrome = false;
     }
-    // D-05: tap anywhere → surface chrome for 800ms.
+    // Tap anywhere → surface chrome for 800ms.
     function onPointerDown(): void {
       recentlyTapped = true;
       if (tapResetHandle !== undefined) clearTimeout(tapResetHandle);
@@ -138,7 +132,7 @@
       : baseClass
   );
 
-  // isActive — VERBATIM copy of _four/TopNav.svelte:100-121 including the PBS guard.
+  // isActive — suffix-match active-state helper including the PBS guard.
   function isActive(slug: string): boolean {
     // Normalize trailing slash, then suffix-match the slug.
     const normalized = page.url.pathname.replace(/\/$/, '');

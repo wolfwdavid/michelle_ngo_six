@@ -1,7 +1,7 @@
 <!--
-  Homepage — Phase 2 Plan 02-04. Assembles the cinematic featured hero
+  Homepage. Assembles the cinematic featured hero
   (HOME-01) above one labeled CategoryRail per category in display order
-  (HOME-02/03), on the Phase-1 app shell (the layout supplies <main id="main">,
+  (HOME-02/03), on the app shell (the layout supplies <main id="main">,
   nav, and footer around this content). HOME-04 links resolve to /watch/[id];
   HOME-05 reduced-motion is owned by the components' rune-bound motion-ok gating.
 

@@ -1,5 +1,5 @@
 <!--
-  App shell layout (FND-04).
+  App shell layout.
 
   Mounts (in DOM order):
     1. Skip-to-content link (sr-only, visible on focus) — WCAG 2.4.1

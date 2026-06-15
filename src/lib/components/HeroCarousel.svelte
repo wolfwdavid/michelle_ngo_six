@@ -1,5 +1,5 @@
 <!--
-  HeroCarousel — Phase 2 Plan 02-03. HOME-01 (cinematic featured hero) +
+  HeroCarousel. HOME-01 (cinematic featured hero) +
   hero half of HOME-05 (reduced-motion).
 
   Rotating-featured variant: poster + category eyebrow + title slides. Slide 0
