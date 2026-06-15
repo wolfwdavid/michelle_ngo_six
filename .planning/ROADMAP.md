@@ -94,7 +94,7 @@ Plans:
 - [x] 05-01-tokens-typography-spacing-PLAN.md — Heading/section/scrim tokens in app.css  + remap chrome/browse/watch/about; collapse 5 display sizes to 4, drop text-xs, unify content-max (DSN-01)
 - [x] 05-02-mobilemenu-a11y-PLAN.md — MobileMenu focus-trap + body scroll-lock + initial focus + focus-restore (DSN-04)
 - [x] 05-03-contrast-contact-press-PLAN.md — Token --scrim-vertical on contact/press, hero-token wordmarks, contrast-safe captions, aria-hidden decorative wordmark, 360px overflow check (DSN-04, DSN-01, DSN-03)
-- [ ] 05-04-cinematic-motion-PLAN.md — Rune-gated reveal IntersectionObserver action applied to rails/watch/press + hero Ken-Burns + pill transition; LCP-safe, no WebGL (DSN-02)
+- [x] 05-04-cinematic-motion-PLAN.md — Rune-gated reveal IntersectionObserver action applied to rails/watch/press + hero Ken-Burns + pill transition; LCP-safe, no WebGL (DSN-02)
 - [ ] 05-05-annotation-scrub-PLAN.md — Scrub leaked _three/_four/D-NN/Phase N/PLAN.md annotations from all src/ comments; zero matches (hygiene; DSN-01..04)
 
 ## Progress
