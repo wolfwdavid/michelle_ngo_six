@@ -47,7 +47,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **DSN-01**: Dark, cinematic, film-forward theme applied site-wide using the OKLCH token system
 - [ ] **DSN-02**: Tasteful 3D depth & motion — card hover/tilt, parallax, scroll reveals — implemented via CSS transforms (no WebGL)
 - [ ] **DSN-03**: Fully responsive across mobile / tablet / desktop (rails and nav adapt)
-- [ ] **DSN-04**: Accessible — visible focus rings, full keyboard navigation, motion gated on `prefers-reduced-motion`
+- [x] **DSN-04**: Accessible — visible focus rings, full keyboard navigation, motion gated on `prefers-reduced-motion`
 
 ### Deploy
 
@@ -111,7 +111,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DSN-01 | Phase 5 | Pending |
 | DSN-02 | Phase 5 | Pending |
 | DSN-03 | Phase 5 | Pending |
-| DSN-04 | Phase 5 | Pending |
+| DSN-04 | Phase 5 | Complete |
 
 **Coverage:**
 - v1 requirements: 25 total
