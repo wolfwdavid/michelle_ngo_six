@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: unknown
-stopped_at: Completed 05-04-PLAN.md (Task 3 human-verify deferred)
-last_updated: "2026-06-15T15:30:44.526Z"
+status: ready_for_verification
+stopped_at: Completed 05-05-PLAN.md
+last_updated: "2026-06-15T16:48:08.380Z"
 progress:
   total_phases: 5
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 17
-  completed_plans: 16
+  completed_plans: 17
 ---
 
 # Project State
@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-06-14)
 
 ## Current Position
 
-Phase: 05 (design-polish) — EXECUTING
-Plan: 4 of 5
+Phase: 05 (design-polish) — READY FOR VERIFICATION
+Plan: 5 of 5 (all plans complete)
 
 ## Performance Metrics
 
@@ -62,6 +62,7 @@ Plan: 4 of 5
 | Phase 05 P01 | 11min | 2 tasks | 8 files |
 | Phase 05 P03 | 12m | 2 tasks | 2 files |
 | Phase 05 P04 | 30 | 2 tasks | 6 files |
+| Phase 05 P05 | 14 | 2 tasks | 26 files |
 
 ## Accumulated Context
 
@@ -97,6 +98,7 @@ Recent decisions affecting current work:
 - [Phase 05]: Chrome (TopNav + Footer) aligned to --content-max; text-xs removed from chrome, 12px reserved for font-mono badges only
 - [Phase 05]: Press title caption raised to neutral-50 + cinema text-shadow (not a per-credit scrim band) — keeps transparent gradient middle while guaranteeing contrast over any poster brightness
 - [Phase 05]: reveal action gates on the motion rune AND feature-checks window/IntersectionObserver, so SSR + reduced-motion both finish fully opaque (never stuck hidden); LCP hero poster excluded — Ken-Burns animates transform only
+- [Phase 05]: Scrubbed leaked planning/sibling annotations from all src/ comments; behaviour byte-equivalent (grep gates + build green)
 
 ### Pending Todos
 
@@ -112,6 +114,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-15T15:29:40.016Z
-Stopped at: Completed 05-04-PLAN.md (Task 3 human-verify deferred)
+Last session: 2026-06-15T16:48:08.374Z
+Stopped at: Completed 05-05-PLAN.md
 Resume file: None
