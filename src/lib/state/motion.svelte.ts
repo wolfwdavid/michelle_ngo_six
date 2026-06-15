@@ -1,5 +1,5 @@
 /**
- * Module-scope rune for prefers-reduced-motion (REEL-04 fallback trigger 1, D-08).
+ * Module-scope rune for prefers-reduced-motion (REEL-04 fallback trigger 1).
  *
  * SSR-safe defaults: during prerender (typeof window === 'undefined'),
  * returns prefersReducedMotion = false (the cinematic-autoplay default).
@@ -9,7 +9,7 @@
  * `onMount`. Module-scope listeners intentionally live for the SPA lifetime —
  * do NOT wrap in $effect.root (RESEARCH §Pattern 3 explicit note).
  *
- * Same .svelte.ts extension + __isBrowser() idiom as Phase 1's
+ * Same .svelte.ts extension + __isBrowser() idiom as
  * src/lib/intersectionVisibility.svelte.ts (Svelte 5.55+ rune-scoping rule).
  */
 import { __isBrowser } from '$lib/storage';

@@ -1,13 +1,12 @@
 /**
  * Canonical category taxonomy — single source of truth.
  *
- * Source: _prep/04-categories.md (8 categories, decision rationale)
- * Decisions: D-01 (closed list), D-03 (slug rule), D-04 (display order)
+ * Conventions: closed list, single slug rule, dynamic display order.
  *
- * IMPORTANT: This is the seed-proposal order from _prep/04-categories.md
- * (the order curators wrote them in). It is NOT the D-04 display order —
- * getCategoriesInDisplayOrder() in the loader (Plan 02-03) re-sorts dynamically
- * per D-04 (count desc, ties alpha) from the validated dataset.
+ * IMPORTANT: This is the seed-proposal order
+ * (the order curators wrote them in). It is NOT the display order —
+ * getCategoriesInDisplayOrder() in the loader re-sorts dynamically
+ * (count desc, ties alpha) from the validated dataset.
  *
  * Adding a category = one-line edit to this array. Zod's `z.enum()` reads
  * it directly; the `Category` TS type is derived; the slug rule is one function.
@@ -26,7 +25,7 @@ export const CATEGORIES = [
 export type Category = (typeof CATEGORIES)[number];
 
 /**
- * Auto-derived kebab-case slug. D-03: single rule for all categories.
+ * Auto-derived kebab-case slug. Single rule for all categories.
  *
  * Rule: lowercase → replace any run of non-[a-z0-9] with a single hyphen → trim leading/trailing hyphens.
  *
@@ -51,7 +50,7 @@ const SLUG_TO_CATEGORY: Record<string, Category> = Object.fromEntries(
 /**
  * Returns the Category for a given slug, or `undefined` if the slug is unknown.
  * Note: return type is `Category | undefined` because of `noUncheckedIndexedAccess`
- * (Phase 1 D-14 / tsconfig.json). Callers must narrow.
+ * (tsconfig.json). Callers must narrow.
  */
 export function slugToCategory(slug: string): Category | undefined {
   return SLUG_TO_CATEGORY[slug];

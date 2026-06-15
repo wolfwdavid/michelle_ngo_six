@@ -1,5 +1,5 @@
 /**
- * Hero carousel rune factory — Phase 2 Plan 02-03.
+ * Hero carousel rune factory.
  *
  * Drives the homepage rotating-featured hero carousel: slide 0 is the producer
  * reel video, slides 1..N are full-bleed poster slides from getHeroSlides().

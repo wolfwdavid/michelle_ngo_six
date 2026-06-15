@@ -1,5 +1,5 @@
 /**
- * Module-scope rune for the chrome-fade scroll-idle signal (Phase 4 D-05).
+ * Module-scope rune for the chrome-fade scroll-idle signal.
  *
  * Listens to scroll events on the supplied target (Window OR the reel container
  * HTMLElement). Flips isScrolling=true on each scroll event; flips back to
@@ -20,7 +20,7 @@
  */
 import { __isBrowser } from '$lib/storage';
 
-export const SCROLL_STOP_DEBOUNCE_MS = 600; // D-05 — tune-window during real-device QA
+export const SCROLL_STOP_DEBOUNCE_MS = 600; // tune-window during real-device QA
 
 let _isScrolling = $state(false);
 let _target: HTMLElement | Window | null = null;

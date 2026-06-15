@@ -1,12 +1,12 @@
 /**
- * Hero carousel slide selection — quick 260611-jnh.
+ * Hero carousel slide selection.
  *
  * Picks one representative NON-reel video per category for the homepage hero
  * carousel: the ambient producer reel already IS slide 0, so the 'Reel'
  * category is skipped entirely and the producer reel id is excluded
  * belt-and-suspenders. Within each category a `featured: true` video wins;
  * otherwise the first video in that category is used. Categories are walked
- * in D-04 display order (count desc, ties alpha) and the result is capped at
+ * in display order (count desc, ties alpha) and the result is capped at
  * HERO_SLIDE_CAP.
  *
  * Computed once at module load from the static validated `videos` array
@@ -14,7 +14,7 @@
  * `getHeroSlides()` is deterministic and allocation-free per call.
  *
  * Why a separate peer module (not added to src/lib/data/index.ts):
- *   Phase 2 D-22 / D-24 lock the 11-name public surface of $lib/data.
+ *   The public surface of $lib/data is intentionally narrow.
  *   Sidecar/derived helpers live in peer files; consumers import directly:
  *     `import { getHeroSlides } from '$lib/data/heroSlides'`
  *   — same pattern as posters.ts.

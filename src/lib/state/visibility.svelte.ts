@@ -1,9 +1,9 @@
 /**
  * Module-scope rune for Page Visibility API + menu-open OR composite.
  *
- * Phase 5 Finding 10 option (a): lift the Phase 4 D-08 documentHidden bridge
- * out of ReelStage so HeroAmbient (Plan 05-03) and WatchPlayer (Plan 05-02)
- * subscribe to the SAME source-of-truth rune. The Phase 3 D-12
+ * Lifts the documentHidden bridge
+ * out of ReelStage so HeroAmbient and WatchPlayer
+ * subscribe to the SAME source-of-truth rune. The
  * 'reel:visibility' setContext broadcast in ReelStage is preserved for
  * PreviewLoop consumers; only the WRITER side (visibilitychange listener)
  * migrates here.

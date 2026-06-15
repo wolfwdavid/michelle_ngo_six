@@ -1,11 +1,11 @@
 /**
  * $lib/storage — typed localStorage helper with `mnp_six_` namespace prefix.
  *
- * Decisions: D-14 (auto-prefix; no raw localStorage outside this module),
- * D-15 (typed API; SSR-safe; JSON parse try/catch; null fallback on corrupt),
- * D-16 (localStorage only — sessionStorage/cookies/URL out of scope).
+ * Conventions: auto-prefix (no raw localStorage outside this module);
+ * typed API; SSR-safe; JSON parse try/catch; null fallback on corrupt;
+ * localStorage only — sessionStorage/cookies/URL out of scope.
  *
- * The CI grep gate in .github/workflows/deploy.yml (D-17, Plan 01-03) blocks
+ * The CI grep gate in .github/workflows/deploy.yml blocks
  * any other file from importing window.localStorage / localStorage directly.
  */
 
@@ -35,7 +35,7 @@ export const storage = {
    * Read a value. Returns null when:
    *   - the key is not set
    *   - we are running on the server (SSR / prerender)
-   *   - the stored value is not valid JSON (corrupt — graceful tolerance, D-15)
+   *   - the stored value is not valid JSON (corrupt — graceful tolerance)
    */
   get<T>(key: string): T | null {
     if (!__isBrowser()) return null;
@@ -69,8 +69,8 @@ export const storage = {
   },
 
   /**
-   * Remove ALL mnp_six_-prefixed keys. Leaves foreign keys (e.g., mnp_four_*
-   * from a sibling app sharing wolfwdavid.github.io origin — Trap D mitigation).
+   * Remove ALL mnp_six_-prefixed keys. Leaves foreign keys (e.g., other
+   * apps' keys sharing the same github.io origin).
    */
   clear(): void {
     if (!__isBrowser()) return;

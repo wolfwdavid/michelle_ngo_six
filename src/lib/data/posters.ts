@@ -1,19 +1,19 @@
 /**
  * Poster lookup helper — reads src/lib/data/posters.json sidecar.
  *
- * Sidecar is populated by Plan 03-03's extension to scripts/check-embeds.ts
- * (D-04 — committed artifacts, not network-fetched at build). When entries
- * are missing (e.g., immediately after Plan 03-01 ships the empty stub), we
+ * Sidecar is populated by scripts/check-embeds.ts
+ * (committed artifacts, not network-fetched at build). When entries
+ * are missing, we
  * fall back to a deterministic path so the type stays non-null and components
- * render a `<img src="/posters/<source>-<id>.jpg">` that resolves once Plan
- * 03-03 commits the actual assets.
+ * render a `<img src="/posters/<source>-<id>.jpg">` that resolves once the
+ * actual assets are committed.
  *
- * The build-time validatePostersPlugin (Plan 03-03, vite.config.ts) fails
+ * The build-time validatePostersPlugin (vite.config.ts) fails
  * `pnpm build` if posters.json is missing entries; this helper is the runtime
  * read for components that survive the build gate.
  *
  * Why a separate module (not added to $lib/data/index.ts):
- *   Phase 2 D-22 / D-24 lock the 11-name public surface of $lib/data. Sidecar
+ *   The public surface of $lib/data is intentionally narrow. Sidecar
  *   helpers live in a peer file; consumers import directly:
  *     `import { getPosterFor } from '$lib/data/posters'`.
  */

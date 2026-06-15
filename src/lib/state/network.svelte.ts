@@ -1,8 +1,8 @@
 /**
  * Module-scope rune for Network Information API + saveData + downlink (REEL-04
- * fallback trigger 2, D-05, D-08, Pitfall 4).
+ * fallback trigger 2).
  *
- * D-05 (PROGRESSIVE ENHANCEMENT): outside Chromium where navigator.connection
+ * PROGRESSIVE ENHANCEMENT: outside Chromium where navigator.connection
  * is undefined, isCellularLike returns false (autoplay-by-default for Safari/
  * Firefox/iOS Safari). The "default to fast" choice is deliberate — Safari/
  * Firefox users are the majority of mobile filmmaker-portfolio audience;
@@ -38,7 +38,7 @@ export const network = {
     return _downlink;
   },
   get isCellularLike(): boolean {
-    // Pitfall 4 + D-05: poster mode triggered for Save-Data OR cellular
+    // Poster mode triggered for Save-Data OR cellular
     // (effectiveType slow-2g/2g/3g) OR throttled wifi (downlink < 1.5 Mbps,
     // catches the hotel-wifi case). Outside Chromium where API is undefined,
     // all three remain at their SSR defaults → returns false (autoplay).
@@ -83,7 +83,7 @@ export function initNetworkState(): void {
   if (!__isBrowser() || initialized) return;
   initialized = true;
   const conn = (navigator as Navigator & { connection?: NavigatorConnection }).connection;
-  if (!conn) return; // D-05: Safari/Firefox 2026 → defaults stay → autoplay-by-default
+  if (!conn) return; // Safari/Firefox → defaults stay → autoplay-by-default
   const apply = (): void => {
     const et = conn.effectiveType;
     _effectiveType = et === 'slow-2g' || et === '2g' || et === '3g' || et === '4g' ? et : 'unknown';

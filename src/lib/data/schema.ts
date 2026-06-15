@@ -1,14 +1,14 @@
 /**
  * Zod 4 schema for the Video data layer.
  *
- * Source decisions:
- *   D-01 / D-04: CATEGORIES list lives in ./categories (single source of truth).
- *   D-05: required fields = source, id, title, uploader, thumbnail, embed, category, published.
- *   D-06: optional fields = duration_seconds, description (UI degrades gracefully).
- *   D-07: published is ISO date string YYYY-MM-DD (Zod 4: z.iso.date()).
- *   D-08: schema-forward additions — featured (default false), hidden (default false),
+ * Conventions:
+ *   CATEGORIES list lives in ./categories (single source of truth).
+ *   required fields = source, id, title, uploader, thumbnail, embed, category, published.
+ *   optional fields = duration_seconds, description (UI degrades gracefully).
+ *   published is ISO date string YYYY-MM-DD (Zod 4: z.iso.date()).
+ *   schema-forward additions — featured (default false), hidden (default false),
  *         tags (default []), credits (optional object).
- *   D-15: schema violations fail the build (enforced by the Vite plugin in Plan 02-03).
+ *   schema violations fail the build (enforced by the Vite plugin).
  *
  * Why z.strictObject:
  *   Rejects unknown keys. A typo'd field name (e.g., "titel" instead of "title")
@@ -42,7 +42,7 @@ const CommonFields = {
   category: CategorySchema,
   description: z.string().optional(),
   duration_seconds: z.number().int().positive().optional(),
-  // D-08 schema-forward additions:
+  // Schema-forward additions:
   featured: z.boolean().default(false),
   hidden: z.boolean().default(false),
   tags: z.array(z.string()).default([]),
