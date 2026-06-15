@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 05-01-tokens-typography-spacing-PLAN.md
-last_updated: "2026-06-15T00:10:20.531Z"
+stopped_at: Completed 05-03-PLAN.md (Task 3 human-verify deferred)
+last_updated: "2026-06-15T15:00:41.661Z"
 progress:
   total_phases: 5
   completed_phases: 4
   total_plans: 17
-  completed_plans: 14
+  completed_plans: 15
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-06-14)
 ## Current Position
 
 Phase: 05 (design-polish) — EXECUTING
-Plan: 2 of 5
+Plan: 3 of 5
 
 ## Performance Metrics
 
@@ -60,6 +60,7 @@ Plan: 2 of 5
 | Phase 04 P01 | 5min | 3 tasks | 6 files |
 | Phase 05 P02 | 7 | 1 tasks | 1 files |
 | Phase 05 P01 | 11min | 2 tasks | 8 files |
+| Phase 05 P03 | 12m | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -93,6 +94,7 @@ Recent decisions affecting current work:
 - [Phase 05]: Single four-size heading ramp (--text-hero/h1/h2/meta) in @theme is the only display scale across chrome and pages; sizes consumed via text-[length:var(--text-*)]
 - [Phase 05]: Editorial sections use --section-y / --section-y-sm rhythm tokens; grids keep their own py-8 (grids are not editorial sections)
 - [Phase 05]: Chrome (TopNav + Footer) aligned to --content-max; text-xs removed from chrome, 12px reserved for font-mono badges only
+- [Phase 05]: Press title caption raised to neutral-50 + cinema text-shadow (not a per-credit scrim band) — keeps transparent gradient middle while guaranteeing contrast over any poster brightness
 
 ### Pending Todos
 
@@ -108,6 +110,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-15T00:10:20.526Z
-Stopped at: Completed 05-01-tokens-typography-spacing-PLAN.md
+Last session: 2026-06-15T14:59:26.399Z
+Stopped at: Completed 05-03-PLAN.md (Task 3 human-verify deferred)
 Resume file: None
