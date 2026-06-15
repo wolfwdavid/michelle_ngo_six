@@ -45,16 +45,13 @@
         </div>
       </div>
 
-      <!-- Column 2: 8 categories mirror — PBS retargeted to /pbs-american-portrait/ -->
+      <!-- Column 2: 8 categories — every link targets the prerendered /work/<slug> -->
       <div data-footer-col="work">
         <h2 class="text-sm font-semibold uppercase tracking-wider text-neutral-500">Work</h2>
         <ul class="mt-4 space-y-2 text-base">
           {#each categories as category (category)}
             {@const slug = categoryToSlug(category)}
-            {@const href =
-              slug === 'pbs-american-portrait'
-                ? `${base}/pbs-american-portrait/`
-                : `${base}/work/${slug}`}
+            {@const href = `${base}/work/${slug}`}
             <li>
               <a
                 {href}
