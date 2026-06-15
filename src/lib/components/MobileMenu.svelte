@@ -10,7 +10,10 @@
             its documentHidden $state so the existing reel:visibility
             broadcast pauses iframes within 300ms.
     D-12  — Escape closes menu (modal pattern); document keydown listener
-            attached in $effect with cleanup on unmount.
+            attached in $effect with cleanup on unmount. The same $effect
+            also runs the full modal contract: focus is moved into the dialog
+            on open, Tab / Shift+Tab is trapped within it, body scroll is
+            locked, and focus is restored to the trigger on close.
     D-15  — data-sveltekit-preload-data="hover" on every link.
 
   ESLint: svelte/no-navigation-without-resolve disabled via per-file
@@ -23,15 +26,70 @@
 
   const categories = getCategoriesInDisplayOrder();
 
-  // D-12 Escape: close menu on document keydown Escape.
+  // Collect every focusable child of the open dialog, in DOM order.
+  function getFocusable(dialog: HTMLElement): HTMLElement[] {
+    return Array.from(
+      dialog.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
+    );
+  }
+
+  // Modal lifecycle: this component is mounted only while the menu is open, so
+  // setup runs on open and the cleanup runs on close.
+  //  - capture the trigger and restore its focus on close
+  //  - lock body scroll while the overlay is up, restore it after
+  //  - move initial focus to the close button
+  //  - trap Tab / Shift+Tab inside the dialog; Escape closes the menu
   $effect(() => {
+    const trigger = document.activeElement as HTMLElement | null;
+
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const dialog = document.getElementById('mobile-menu');
+
+    // Move focus inside the dialog once the node is painted and focusable.
+    const raf = requestAnimationFrame(() => {
+      if (!dialog) return;
+      const closeButton = dialog.querySelector<HTMLElement>(
+        'button[aria-label="Close menu"]'
+      );
+      (closeButton ?? getFocusable(dialog)[0])?.focus();
+    });
+
     function onKey(e: KeyboardEvent): void {
       if (e.key === 'Escape') {
         closeMenu();
+        return;
+      }
+
+      if (e.key !== 'Tab' || !dialog) return;
+
+      const focusable = getFocusable(dialog);
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (!first || !last) return;
+
+      const active = document.activeElement;
+
+      if (e.shiftKey) {
+        if (active === first || !dialog.contains(active)) {
+          last.focus();
+          e.preventDefault();
+        }
+      } else if (active === last) {
+        first.focus();
+        e.preventDefault();
       }
     }
+
     document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+      trigger?.focus();
+    };
   });
 </script>
 
