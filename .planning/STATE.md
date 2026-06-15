@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 04-01-content-pages-PLAN.md
-last_updated: "2026-06-15T00:05:51.657Z"
+stopped_at: Completed 05-01-tokens-typography-spacing-PLAN.md
+last_updated: "2026-06-15T00:10:20.531Z"
 progress:
   total_phases: 5
   completed_phases: 4
   total_plans: 17
-  completed_plans: 13
+  completed_plans: 14
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-06-14)
 ## Current Position
 
 Phase: 05 (design-polish) — EXECUTING
-Plan: 1 of 5
+Plan: 2 of 5
 
 ## Performance Metrics
 
@@ -59,6 +59,7 @@ Plan: 1 of 5
 | Phase 03 P03 | 8min | 2 tasks | 3 files |
 | Phase 04 P01 | 5min | 3 tasks | 6 files |
 | Phase 05 P02 | 7 | 1 tasks | 1 files |
+| Phase 05 P01 | 11min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -89,6 +90,9 @@ Recent decisions affecting current work:
 - [Phase 03]: /work/[category] prerenders 8 pages via entries() over CATEGORIES; FilterPillBar reused in link mode (active=current slug); /work/ prefix fully removed from PENDING_ROUTES so all work routes are strictly crawled
 - [Phase 04]: Omitted /about Person JSON-LD to keep contact URLs single-sourced in ContactBlock (PG-04)
 - [Phase 04]: Adapted /about to editorial section (no HeroAmbient in _six)
+- [Phase 05]: Single four-size heading ramp (--text-hero/h1/h2/meta) in @theme is the only display scale across chrome and pages; sizes consumed via text-[length:var(--text-*)]
+- [Phase 05]: Editorial sections use --section-y / --section-y-sm rhythm tokens; grids keep their own py-8 (grids are not editorial sections)
+- [Phase 05]: Chrome (TopNav + Footer) aligned to --content-max; text-xs removed from chrome, 12px reserved for font-mono badges only
 
 ### Pending Todos
 
@@ -104,6 +108,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-14T22:09:56.116Z
-Stopped at: Completed 04-01-content-pages-PLAN.md
+Last session: 2026-06-15T00:10:20.526Z
+Stopped at: Completed 05-01-tokens-typography-spacing-PLAN.md
 Resume file: None
