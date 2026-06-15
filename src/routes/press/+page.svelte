@@ -10,6 +10,7 @@
   import type { PageData } from './$types';
   import { base } from '$app/paths';
   import { getPosterFor } from '$lib/data/posters';
+  import { reveal } from '$lib/actions/reveal.svelte';
 
   let { data }: { data: PageData } = $props();
 </script>
@@ -51,6 +52,7 @@
       ></div>
       <!-- Layer 3: vertical composition — wordmark top / title center / CTA bottom -->
       <div
+        use:reveal
         class="relative z-10 flex h-full flex-col items-center justify-between px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center"
       >
         <!-- Top: network wordmark -->

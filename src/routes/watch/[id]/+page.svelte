@@ -25,6 +25,7 @@
     categoryAccentRing,
   } from '$lib/components/categoryAccent';
   import { motion } from '$lib/state/motion.svelte';
+  import { reveal } from '$lib/actions/reveal.svelte';
   import { getPosterFor } from '$lib/data/posters';
   import { categoryToSlug, getByCategory, videos, type Video } from '$lib/data';
   import type { PageData } from './$types';
@@ -139,37 +140,39 @@
       ← Back to work
     </a>
 
-    <h1
-      class="mt-4 font-display text-[length:var(--text-h1)] leading-snug font-semibold text-neutral-50"
-    >
-      {video.title}
-    </h1>
-
-    <div class="mt-4 flex flex-wrap items-center gap-3">
-      <a
-        href={`${base}/work/${categorySlug}`}
-        data-sveltekit-preload-data="hover"
-        class="inline-flex items-center rounded-full px-3 py-1 font-sans text-sm font-medium ring-1 {categoryAccent(
-          video.category,
-        )} {categoryAccentBg(video.category)} {categoryAccentRing(
-          video.category,
-        )} focus-visible:outline-none focus-visible:ring-2"
+    <div use:reveal>
+      <h1
+        class="mt-4 font-display text-[length:var(--text-h1)] leading-snug font-semibold text-neutral-50"
       >
-        {video.category}
-      </a>
-      <p class="font-sans text-base text-neutral-300">{video.uploader} · {year}</p>
+        {video.title}
+      </h1>
+
+      <div class="mt-4 flex flex-wrap items-center gap-3">
+        <a
+          href={`${base}/work/${categorySlug}`}
+          data-sveltekit-preload-data="hover"
+          class="inline-flex items-center rounded-full px-3 py-1 font-sans text-sm font-medium ring-1 {categoryAccent(
+            video.category,
+          )} {categoryAccentBg(video.category)} {categoryAccentRing(
+            video.category,
+          )} focus-visible:outline-none focus-visible:ring-2"
+        >
+          {video.category}
+        </a>
+        <p class="font-sans text-base text-neutral-300">{video.uploader} · {year}</p>
+      </div>
+
+      {#if video.description}
+        <p
+          class="mt-6 font-sans text-base leading-relaxed whitespace-pre-line text-neutral-300"
+        >
+          {video.description}
+        </p>
+      {/if}
     </div>
 
-    {#if video.description}
-      <p
-        class="mt-6 font-sans text-base leading-relaxed whitespace-pre-line text-neutral-300"
-      >
-        {video.description}
-      </p>
-    {/if}
-
     {#if related.length > 0}
-      <section aria-labelledby="related-heading" class="mt-12">
+      <section aria-labelledby="related-heading" class="mt-12" use:reveal={{ delay: 80 }}>
         <h2
           id="related-heading"
           class="mb-4 font-display text-[length:var(--text-h2)] font-semibold text-neutral-50"

@@ -21,6 +21,7 @@
 <script lang="ts">
   import HeroCarousel from '$lib/components/HeroCarousel.svelte';
   import CategoryRail from '$lib/components/CategoryRail.svelte';
+  import { reveal } from '$lib/actions/reveal.svelte';
   import { getCategoriesInDisplayOrder } from '$lib/data';
 
   const categories = getCategoriesInDisplayOrder();
@@ -40,7 +41,9 @@
     class="space-y-8 pt-12 pb-16"
   >
     {#each categories as cat, i (cat)}
-      <CategoryRail category={cat} eagerFirstCards={i === 0} />
+      <div use:reveal={{ delay: i * 60 }}>
+        <CategoryRail category={cat} eagerFirstCards={i === 0} />
+      </div>
     {/each}
   </section>
 </div>
