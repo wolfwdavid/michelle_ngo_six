@@ -37,18 +37,22 @@
     fetchpriority="high"
     class="absolute inset-0 h-full w-full object-cover"
   />
-  <!-- Layer 2: two-stop gradient overlay -->
+  <!-- Layer 2: vertical scrim overlay (shared OKLCH token; also the parallax/reveal target for a later motion pass) -->
   <div
     class="pointer-events-none absolute inset-0"
-    style="background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.55) 100%);"
+    style="background: var(--scrim-vertical);"
     aria-hidden="true"
   ></div>
   <!-- Layer 3: composition — wordmark upper-third + ContactBlock center + scroll-cue bottom -->
   <div
     class="relative z-10 flex h-full flex-col items-center justify-between px-4 py-16 text-center sm:px-6 md:py-24 lg:px-8"
   >
-    <!-- Upper-third: MICHELLE NGO display wordmark -->
-    <p class="font-display text-6xl font-semibold leading-tight tracking-[0.2em] text-neutral-50">
+    <!-- Upper-third: MICHELLE NGO display wordmark (decorative; sr-only h1 below carries the name) -->
+    <p
+      class="font-display text-[length:var(--text-hero)] font-semibold leading-[1.1] tracking-[var(--tracking-wordmark)] text-neutral-50"
+      style="text-shadow: var(--text-shadow-cinema);"
+      aria-hidden="true"
+    >
       MICHELLE NGO
     </p>
     <!-- sr-only landmark heading -->
