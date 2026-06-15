@@ -159,7 +159,7 @@
 <header bind:this={headerEl} class={chromeClass}>
   <nav
     aria-label="Main navigation"
-    class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between"
+    class="mx-auto max-w-[var(--content-max)] px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between"
   >
     <a
       href={base || '/'}
@@ -168,7 +168,7 @@
     >
 
     <!-- Desktop links (>=sm) -->
-    <ul class="hidden sm:flex items-center gap-4 text-xs uppercase tracking-wider">
+    <ul class="hidden sm:flex items-center gap-4 text-sm uppercase tracking-wider">
       {#each categories as category (category)}
         {@const slug = categoryToSlug(category)}
         <li>

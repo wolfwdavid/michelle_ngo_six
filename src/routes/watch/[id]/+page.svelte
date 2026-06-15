@@ -130,7 +130,7 @@
   </div>
 
   <!-- Below-player chrome — normal flow, contained column. -->
-  <div class="mx-auto max-w-3xl px-6 py-8">
+  <div class="mx-auto max-w-3xl px-6 py-[var(--section-y-sm)]">
     <a
       href={`${base}/work`}
       data-sveltekit-preload-data="hover"
@@ -140,7 +140,7 @@
     </a>
 
     <h1
-      class="mt-4 font-display text-3xl leading-snug font-semibold text-neutral-50 md:text-4xl"
+      class="mt-4 font-display text-[length:var(--text-h1)] leading-snug font-semibold text-neutral-50"
     >
       {video.title}
     </h1>
@@ -172,7 +172,7 @@
       <section aria-labelledby="related-heading" class="mt-12">
         <h2
           id="related-heading"
-          class="mb-4 font-display text-xl font-semibold text-neutral-50"
+          class="mb-4 font-display text-[length:var(--text-h2)] font-semibold text-neutral-50"
         >
           Related work
         </h2>

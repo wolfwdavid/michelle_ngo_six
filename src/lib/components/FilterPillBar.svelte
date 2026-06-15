@@ -40,7 +40,7 @@
 
   // Shared chip geometry across both modes; only the active-state classes differ.
   const baseChip =
-    'inline-block rounded-full px-3 py-1 text-xs uppercase tracking-wider border border-white/15';
+    'inline-block rounded-full px-3 py-1 text-sm uppercase tracking-wider border border-white/15';
   const idleChip = 'text-neutral-300 hover:bg-white/5';
   const allActiveChip = 'bg-neutral-50 text-neutral-950 border-neutral-50';
 

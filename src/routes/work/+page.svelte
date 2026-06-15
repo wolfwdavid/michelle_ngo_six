@@ -41,6 +41,11 @@
 
   <FilterPillBar active={selected} onselect={(slug) => (selected = slug)} />
 
+  <header class="mx-auto max-w-[var(--content-max)] px-[var(--page-gutter)] pt-[var(--section-y-sm)]">
+    <h2 class="font-display text-[length:var(--text-h1)] tracking-tight text-neutral-50">All Work</h2>
+    <p class="mt-1 text-[length:var(--text-meta)] text-neutral-400">{data.videos.length} videos</p>
+  </header>
+
   <ul
     class="mx-auto grid max-w-[var(--content-max)] grid-cols-2 gap-4 px-[var(--page-gutter)] py-8 sm:grid-cols-3 lg:grid-cols-4"
   >

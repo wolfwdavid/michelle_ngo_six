@@ -32,9 +32,9 @@
   <FilterPillBar active={data.slug} />
 
   <header
-    class="mx-auto max-w-[var(--content-max)] px-[var(--page-gutter)] pt-8"
+    class="mx-auto max-w-[var(--content-max)] px-[var(--page-gutter)] pt-[var(--section-y-sm)]"
   >
-    <h2 class="font-display text-2xl tracking-tight text-neutral-50 sm:text-3xl">
+    <h2 class="font-display text-[length:var(--text-h1)] tracking-tight text-neutral-50">
       {data.category}
     </h2>
     <p class="mt-1 text-sm text-neutral-400">

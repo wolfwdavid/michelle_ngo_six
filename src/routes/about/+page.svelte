@@ -19,7 +19,7 @@
   />
 </svelte:head>
 
-<section class="bg-neutral-950 py-16 md:py-24">
+<section class="bg-neutral-950 py-[var(--section-y)]">
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
     <h1 class="sr-only">About Michelle Ngo</h1>
 

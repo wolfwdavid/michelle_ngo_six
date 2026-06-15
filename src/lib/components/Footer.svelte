@@ -38,7 +38,7 @@
 </script>
 
 <footer class="border-t border-white/10 bg-neutral-950 py-12 md:py-16">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-[var(--content-max)] px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
       <!-- Column 1: ContactBlock (D-13/D-20) — same shared component as /about + /contact -->
       <div data-footer-col="contact">
