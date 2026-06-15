@@ -21,11 +21,12 @@ A visitor lands on the homepage and can immediately *watch Michelle's work* — 
 - ✓ Browse work by category (`/work` + `/work/[category]`) and watch any video on `/watch/[id]` (click-to-load player, metadata, related rail) — Phase 3
 - ✓ About (approved bio), Contact, and Press pages with a single-source-of-truth ContactBlock (email, phone, Vimeo, LinkedIn, IMDb) — Phase 4
 - ✓ Static prerender deployed to GitHub Pages at `/michelle_ngo_six` — Phase 1
+- ✓ Dark, cinematic, film-forward design with CSS depth/motion (card tilt, scroll-reveal, hero Ken-Burns) — Phase 5
+- ✓ Responsive + accessible (focus trap, keyboard nav, `prefers-reduced-motion`, double focus rings, token-scrim contrast) — Phase 5
 
 ### Active
 
-- [ ] Dark, cinematic, film-forward visual design with tasteful 3D depth & motion (final polish pass)
-- [ ] Responsive + accessible (keyboard nav, `prefers-reduced-motion`, focus rings) — final sweep
+(All v1 requirements validated — milestone v1.0 complete. Pending: optional human UAT pass on Phase 5 visual/runtime items.)
 
 ### Out of Scope
 
@@ -94,4 +95,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-14 after Phase 4 (Content Pages) — about/contact/press live*
+*Last updated: 2026-06-15 after Phase 5 (Design Polish) — v1.0 complete, all 25 requirements validated*
