@@ -39,8 +39,10 @@
   let containerEl = $state<HTMLElement | null>(null);
 
   // Shared chip geometry across both modes; only the active-state classes differ.
+  // The 150ms color/bg/border transition makes the active-pill swap feel
+  // intentional; the global reduced-motion backstop near-zeros it automatically.
   const baseChip =
-    'inline-block rounded-full px-3 py-1 text-sm uppercase tracking-wider border border-white/15';
+    'chip inline-block rounded-full px-3 py-1 text-sm uppercase tracking-wider border border-white/15';
   const idleChip = 'text-neutral-300 hover:bg-white/5';
   const allActiveChip = 'bg-neutral-50 text-neutral-950 border-neutral-50';
 
@@ -125,3 +127,11 @@
     {/each}
   </ul>
 </nav>
+
+<style>
+  /* Animate active-pill accent swaps. The global app.css reduced-motion backstop
+     near-zeros this duration under prefers-reduced-motion. */
+  .chip {
+    transition: background-color 150ms, color 150ms, border-color 150ms;
+  }
+</style>

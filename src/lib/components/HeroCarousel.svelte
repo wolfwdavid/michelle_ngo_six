@@ -201,6 +201,26 @@
     transition: opacity 600ms var(--ease-cinematic);
   }
 
+  /* Ken-Burns: a slow scale on the ACTIVE poster while motion is allowed. This
+     animates transform ONLY — the poster (the eager LCP element) is always
+     opacity:1 and present at first paint; it never starts hidden. Under
+     reduced motion (no .motion-ok) the poster is static at scale 1, and the
+     global app.css reduced-motion backstop also near-zeros any duration. */
+  @keyframes ken-burns {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.06);
+    }
+  }
+
+  .slide.motion-ok.is-active img {
+    animation: ken-burns 7000ms var(--ease-cinematic) forwards;
+    transform-origin: center;
+    will-change: transform;
+  }
+
   .hero-eyebrow {
     font-family: var(--font-sans);
     font-size: 14px;
