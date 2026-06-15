@@ -43,10 +43,10 @@
         fetchpriority={i === 0 ? 'high' : 'auto'}
         class="absolute inset-0 h-full w-full object-cover"
       />
-      <!-- Layer 2: two-stop gradient overlay -->
+      <!-- Layer 2: vertical scrim overlay (shared OKLCH token; also the parallax/reveal target for a later motion pass) -->
       <div
         class="pointer-events-none absolute inset-0"
-        style="background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.55) 100%);"
+        style="background: var(--scrim-vertical);"
         aria-hidden="true"
       ></div>
       <!-- Layer 3: vertical composition — wordmark top / title center / CTA bottom -->
@@ -55,12 +55,16 @@
       >
         <!-- Top: network wordmark -->
         <p
-          class="font-display text-6xl font-semibold leading-tight tracking-tight text-neutral-50"
+          class="font-display text-[length:var(--text-hero)] font-semibold leading-[1.1] tracking-[var(--tracking-wordmark)] text-neutral-50"
+          style="text-shadow: var(--text-shadow-cinema);"
         >
           {credit.network}
         </p>
-        <!-- Center: video title caption -->
-        <p class="max-w-xl font-sans text-base font-normal leading-snug text-neutral-300">
+        <!-- Center: video title caption (raised to neutral-50 + cinema shadow for legibility over the transparent gradient middle) -->
+        <p
+          class="max-w-xl font-sans text-base font-normal leading-snug text-neutral-50"
+          style="text-shadow: var(--text-shadow-cinema);"
+        >
           {credit.video.title}
         </p>
         <!-- Bottom: ▷ Watch pill CTA -->
