@@ -8,6 +8,18 @@ A cinematic, YouTube-style portfolio website for filmmaker and producer Michelle
 
 A visitor lands on the homepage and can immediately *watch Michelle's work* — browsing her films/videos by category in an engaging, cinematic, scroll-and-play interface. If everything else fails, the homepage rails + watch experience must work.
 
+## Current Milestone: v2.0 Enhancements
+
+**Goal:** Layer the deferred discovery + richness features onto the shipped v1.0 site without regressing performance or the cinematic feel.
+
+**Target features:**
+- Hover/focus video-card previews (YouTube-style, muted, reduced-motion-safe)
+- Site-wide client-side search across all videos
+- A real `/pbs-american-portrait` page (removing the last prerender allow-list exception) with the PBS American Portrait collection
+- Michelle's personalized LinkedIn / IMDb profile URLs (replace the v1 homepage fallbacks)
+
+Same stack and constraints as v1.0: SvelteKit 5 + adapter-static + Tailwind v4, GitHub Pages, CSS depth/motion only (no WebGL), motion gated on the `motion` rune, no AI-assistant mentions in code/commits, no test harness (verify via `pnpm check`/`pnpm build` + grep). Phase numbering continues from v1.0 (starts at Phase 6). Custom-domain cutover to michellengo.net is staged on `launch/custom-domain`.
+
 ## Requirements
 
 ### Validated
@@ -26,7 +38,12 @@ A visitor lands on the homepage and can immediately *watch Michelle's work* — 
 
 ### Active
 
-(All v1 requirements validated — milestone v1.0 complete. Pending: optional human UAT pass on Phase 5 visual/runtime items.)
+<!-- Milestone v2.0 — building toward these. v1.0 fully validated above. -->
+
+- [ ] Hover/focus card preview (muted loop, YouTube-style, reduced-motion-safe)
+- [ ] Site-wide client-side search across all videos
+- [ ] Dedicated `/pbs-american-portrait` page + PBS American Portrait collection (remove last prerender allow-list exception)
+- [ ] Personalized LinkedIn / IMDb profile URLs (replace homepage fallbacks)
 
 ### Out of Scope
 
@@ -95,4 +112,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-06-15 after Phase 5 (Design Polish) — v1.0 complete, all 25 requirements validated*
+*Last updated: 2026-06-16 — milestone v2.0 (Enhancements) started; v1.0 complete + live*
