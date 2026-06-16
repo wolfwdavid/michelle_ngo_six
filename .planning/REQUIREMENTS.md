@@ -56,16 +56,28 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **DEP-03**: No hardcoded absolute asset paths; all assets resolve under the base path
 - [x] **DEP-04**: `sitemap.xml` and `.nojekyll` generated; site reachable at `wolfwdavid.github.io/michelle_ngo_six`
 
-## v2 Requirements
+## v2.0 Milestone Requirements (Active)
 
-Deferred to future release. Tracked but not in current roadmap.
+Scope for milestone v2.0 (Enhancements). Phases continue from v1.0 (start at Phase 6). Same constraints: CSS-only motion (no WebGL), motion gated on the `motion` rune, static client-side only (no backend), no test harness, no AI-assistant mentions.
 
-### Enhancements
+### Card Preview
 
-- **ENH-01**: Hover-to-preview autoplay on video cards (YouTube-style)
-- **ENH-02**: Site-wide search across videos
-- **ENH-03**: Live PBS American Portrait collection integration (dynamic feed)
-- **ENH-04**: Personalized LinkedIn / IMDb profile URLs (replace homepage fallbacks)
+- [ ] **PREV-01**: On hover (desktop) or focus, a video card plays a muted, looping inline preview of that video; clicking still opens the watch page
+- [ ] **PREV-02**: Preview autoplay is gated on the `motion` rune — under `prefers-reduced-motion` (and on touch where hover is unavailable) the card shows the static poster, no autoplay
+
+### Search
+
+- [ ] **SRCH-01**: A visitor can open a search control from the nav and find videos by title, category, and description across all 56 videos
+- [ ] **SRCH-02**: Search runs entirely client-side (static site, prebuilt index); each result links to the video's watch page; empty/no-match states are handled
+
+### PBS American Portrait
+
+- [ ] **PBS-01**: A dedicated, prerendered `/pbs-american-portrait` page presents Michelle's PBS American Portrait work, removing the last `/pbs-american-portrait/` entry from the prerender allow-list
+- [ ] **PBS-02**: The PBS page surfaces the PBS American Portrait collection content (curated data file or build-time-fetched feed) beyond the existing in-app category videos
+
+### Profile Links
+
+- [ ] **PROF-01**: LinkedIn and IMDb links resolve to Michelle's real personalized profile URLs (replacing the v1 homepage fallbacks) everywhere `ContactBlock` renders — requires the actual URLs from Michelle
 
 ## Out of Scope
 
