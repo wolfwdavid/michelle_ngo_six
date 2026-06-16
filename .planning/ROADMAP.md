@@ -109,3 +109,94 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 3. Browse & Watch | 0/3 | Not started | - |
 | 4. Content Pages | 0/1 | Not started | - |
 | 5. Design Polish | 0/TBD | Not started | - |
+
+---
+
+# Milestone v2.0 — Enhancements
+
+**Started:** 2026-06-16 · **Granularity:** standard · **Phases:** 6–8 (continue from v1.0; do not renumber).
+
+Layer the deferred discovery + richness features onto the shipped, live v1.0 site **without regressing performance or the cinematic feel**. Same stack/constraints as v1.0: SvelteKit 5 + adapter-static + Tailwind v4, GitHub Pages, CSS-only motion gated on the `motion` rune (no WebGL), client-side-only data (no backend), no test harness (verify via `pnpm check` / `pnpm build` + grep), no AI-assistant mentions in code/commits.
+
+## Phases (v2.0)
+
+- [ ] **Phase 6: Card Preview & Profile Links** - Hover/focus muted inline video previews (motion-rune-gated) + Michelle's real LinkedIn/IMDb profile URLs
+- [ ] **Phase 7: Site Search** - Client-side search across all 56 videos (title/category/description) with a prebuilt static index
+- [ ] **Phase 8: PBS American Portrait Page** - Real prerendered `/pbs-american-portrait` page + curated PBS collection content (removes the last prerender allow-list exception)
+
+## Phase Details (v2.0)
+
+### Phase 6: Card Preview & Profile Links
+**Goal**: Video cards come alive with YouTube-style muted inline previews on hover/focus while preserving LCP and reduced-motion behavior, and every contact surface points at Michelle's real social profiles.
+**Depends on**: Phase 5 (v1.0 complete — VideoCard, motion rune, and ContactBlock all shipped)
+**Requirements**: PREV-01, PREV-02, PROF-01
+**Constraints / Risks**:
+  - Previews MUST reuse the existing `motion` rune as the single source of motion truth — no separate motion flag.
+  - Protect LCP: never autoplay the whole rail. Only the hovered/focused card loads/plays its muted loop; previews are lazy and capped (e.g. one active at a time), so no extra media ships in the prerendered HTML or fires on initial paint.
+  - Under `prefers-reduced-motion` (rune off) and on touch/no-hover devices, cards stay static posters — no autoplay.
+  - **PROF-01 is BLOCKED** until Michelle supplies her real LinkedIn + IMDb URLs. Until then, the work is wiring/centralization in `ContactBlock`; the actual URL values are a drop-in once received. Do not invent URLs.
+**Success Criteria** (what must be TRUE):
+  1. On a hover-capable device with motion enabled, hovering or keyboard-focusing a video card starts a muted, looping inline preview of that video; moving away stops it.
+  2. Clicking/activating a previewing card still navigates to that video's watch page (preview never blocks the existing click target).
+  3. With `prefers-reduced-motion` (motion rune off) or on a touch/no-hover device, the card shows only the static poster — no preview autoplays.
+  4. The homepage's initial LCP is unchanged — no preview media loads on first paint; previews load only on interaction.
+  5. Everywhere `ContactBlock` renders (footer, about, contact), the LinkedIn and IMDb links resolve to Michelle's real personalized profile URLs (or are cleanly flagged as awaiting-input if her URLs have not yet been provided).
+**Plans**: TBD
+
+### Phase 7: Site Search
+**Goal**: A visitor can find any of Michelle's videos from anywhere on the site via a fast, fully client-side search.
+**Depends on**: Phase 6 (only ordering; technically independent of preview work)
+**Requirements**: SRCH-01, SRCH-02
+**Constraints / Risks**:
+  - Search MUST be 100% client-side on a prerendered static site — no backend, no runtime API. Use a prebuilt static index (generated at build time from `videos.json`) shipped as a static asset / module.
+  - Index must stay in sync with the 56 videos in `videos.json` (single source of truth); regenerate as part of the build, never hand-maintain.
+  - Keep the search bundle off the critical path (lazy-load the index/search code on open) to protect LCP.
+**Success Criteria** (what must be TRUE):
+  1. A visitor can open a search control from the nav on any page.
+  2. Typing a query returns matching videos by title, category, and/or description across all 56 videos.
+  3. Each result links to that video's `/watch/[id]` page.
+  4. Empty-query and no-match states render a clear, handled message (not a blank or broken view).
+  5. Search works on the deployed static GitHub Pages build with no network/API calls (verifiable offline / in devtools network panel).
+**Plans**: TBD
+
+### Phase 8: PBS American Portrait Page
+**Goal**: Michelle's PBS American Portrait work gets a dedicated, real, prerendered page — closing the last prerender allow-list exception left open from v1.0.
+**Depends on**: Phase 5 (v1.0 routing/prerender config); independent of Phases 6–7.
+**Requirements**: PBS-01, PBS-02
+**Constraints / Risks**:
+  - PBS-01 MUST remove the `/pbs-american-portrait/` entry from `svelte.config.js` PENDING_ROUTES and have the real route prerender strictly (no handleHttpError exception remaining for it).
+  - PBS-02 content comes from a curated static data file or a build-time-fetched feed (resolved at build, committed/static) — never a runtime fetch (static-site / no-backend constraint).
+  - Must surface PBS collection content beyond the existing in-app PBS category videos without duplicating or desyncing from `videos.json`.
+**Success Criteria** (what must be TRUE):
+  1. `/pbs-american-portrait` is a real, prerendered page reachable from the deployed site (not a stub or redirect).
+  2. The `/pbs-american-portrait/` entry is gone from PENDING_ROUTES and `pnpm build` prerenders the route under strict crawling with no allow-list exception for it.
+  3. The page presents Michelle's PBS American Portrait collection content — richer than the in-app category rail (curated data file or build-time feed).
+  4. The page is responsive, on-theme (OKLCH tokens, cinematic), and accessible, consistent with the rest of the site.
+**Plans**: TBD
+
+## Progress (v2.0)
+
+**Execution Order:**
+v2.0 phases execute in numeric order after v1.0: 6 → 7 → 8
+
+| Phase | Plans Complete | Status | Completed |
+|-------|----------------|--------|-----------|
+| 6. Card Preview & Profile Links | 0/TBD | Not started | - |
+| 7. Site Search | 0/TBD | Not started | - |
+| 8. PBS American Portrait Page | 0/TBD | Not started | - |
+
+### Coverage (v2.0)
+
+| Requirement | Phase |
+|-------------|-------|
+| PREV-01 | Phase 6 |
+| PREV-02 | Phase 6 |
+| PROF-01 | Phase 6 |
+| SRCH-01 | Phase 7 |
+| SRCH-02 | Phase 7 |
+| PBS-01 | Phase 8 |
+| PBS-02 | Phase 8 |
+
+- v2.0 requirements: 7 total
+- Mapped to phases: 7 (100%)
+- Unmapped / orphaned: 0

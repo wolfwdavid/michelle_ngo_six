@@ -2,12 +2,13 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Enhancements
-status: defining_requirements
-stopped_at: v2.0 milestone started
+status: roadmap_complete
+stopped_at: v2.0 roadmap created (Phases 6-8); next_phase 6
+next_phase: 6
 last_updated: "2026-06-16T00:00:00.000Z"
 progress:
-  total_phases: 0
-  completed_phases: 0
+  total_phases: 8
+  completed_phases: 5
   total_plans: 0
   completed_plans: 0
 ---
@@ -19,14 +20,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-06-14)
 
 **Core value:** A visitor lands on the homepage and can immediately watch Michelle's work — browsing films/videos by category in an engaging, cinematic, scroll-and-play interface.
-**Current focus:** Milestone v2.0 (Enhancements) — defining requirements
+**Current focus:** Milestone v2.0 (Enhancements) — roadmap created (Phases 6-8); ready to plan Phase 6
 
 ## Current Position
 
-Phase: Not started (defining requirements)
+Phase: 6 (Card Preview & Profile Links) — not started
 Plan: —
-Status: Defining requirements
-Last activity: 2026-06-16 — Milestone v2.0 started (v1.0 complete + live)
+Status: Roadmap complete; next is /gsd:plan-phase 6
+Last activity: 2026-06-16 — v2.0 roadmap created (Phases 6-8, 7 reqs mapped)
 
 ## Performance Metrics
 
@@ -116,6 +117,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-15T16:48:08.374Z
-Stopped at: Completed 05-05-PLAN.md
+Last session: 2026-06-16
+Stopped at: v2.0 roadmap created (Phases 6-8). Next: /gsd:plan-phase 6
 Resume file: None

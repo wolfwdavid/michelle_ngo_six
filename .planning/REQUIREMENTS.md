@@ -124,12 +124,19 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DSN-02 | Phase 5 | Complete |
 | DSN-03 | Phase 5 | Complete |
 | DSN-04 | Phase 5 | Complete |
+| PREV-01 | Phase 6 | Pending |
+| PREV-02 | Phase 6 | Pending |
+| PROF-01 | Phase 6 | Pending (blocked: awaiting Michelle's real LinkedIn/IMDb URLs) |
+| SRCH-01 | Phase 7 | Pending |
+| SRCH-02 | Phase 7 | Pending |
+| PBS-01 | Phase 8 | Pending |
+| PBS-02 | Phase 8 | Pending |
 
 **Coverage:**
-- v1 requirements: 25 total
-- Mapped to phases: 25 (100%)
+- v1 requirements: 25 total -> 25 mapped (100%)
+- v2.0 requirements: 7 total -> 7 mapped (100%)
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-06-14*
-*Last updated: 2026-06-14 after roadmap creation*
+*Last updated: 2026-06-16 -- v2.0 roadmap (Phases 6-8) created*
