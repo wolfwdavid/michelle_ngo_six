@@ -37,7 +37,10 @@ jobs:
 
       - name: Build
         env:
-          BASE_PATH: /${{ github.event.repository.name }}
+          # Served at the apex custom domain (michellengo.net) at the root —
+          # no repo-name path prefix. (Was /${{ github.event.repository.name }}
+          # for the project-pages URL before the custom-domain cutover.)
+          BASE_PATH: ''
         run: pnpm build
 
       - name: Upload artifact
